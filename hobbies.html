@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Free Time — хобби и увлечения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cork:#c9976a; --paper:#fffdf5; --ink:#2b2a3b; --dim:#6b6a80; --line:#eadfc8;
+    --orange:#e8590c; --orange-soft:#ffe8d9; --violet:#7048e8; --violet-soft:#ece6ff; --green:#2b8a3e; --green-soft:#dcf5e1;
+    --blue:#1971c2; --blue-soft:#dcebfb; --pink:#d6336c; --pink-soft:#ffe0ec; --yellow:#ffe066; --yellow-soft:#fff6c9;
+    --ok:#2b8a3e; --bad:#e03131; --acc:#3d3a56; --soft:#efedf6;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; font-family:'Nunito',sans-serif; color:var(--ink); min-height:100vh; padding-bottom:50px;
+    background-color:var(--cork);
+    background-image:radial-gradient(#b5834f 1.3px,transparent 1.8px),radial-gradient(#dcb084 1px,transparent 1.5px);
+    background-size:19px 19px,29px 29px; background-position:0 0,9px 11px;}
+  h1,h2,h3,.hand{font-family:'Pangolin',cursive;}
+
+  /* ===== poster hero ===== */
+  .hero{padding:22px 12px 10px;}
+  .poster{position:relative; max-width:860px; margin:0 auto; background:var(--paper); border-radius:6px; text-align:center; padding:22px 16px 18px;
+    box-shadow:0 8px 0 rgba(90,55,20,.25),0 14px 24px rgba(60,35,10,.3); transform:rotate(-.6deg);}
+  .poster::before,.poster::after{content:''; position:absolute; top:-12px; width:92px; height:26px; background:rgba(255,224,102,.8); border:1px dashed rgba(180,150,20,.5);}
+  .poster::before{left:30px; transform:rotate(-6deg);} .poster::after{right:30px; transform:rotate(5deg);}
+  .floaters{display:flex; justify-content:center; gap:12px; font-size:clamp(26px,6vw,38px); margin-bottom:2px;}
+  .floaters span{display:inline-block; animation:bob 3s ease-in-out infinite;}
+  .floaters span:nth-child(2){animation-delay:.3s;} .floaters span:nth-child(3){animation-delay:.6s;}
+  .floaters span:nth-child(4){animation-delay:.9s;} .floaters span:nth-child(5){animation-delay:1.2s;} .floaters span:nth-child(6){animation-delay:1.5s;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg);}50%{transform:translateY(-8px) rotate(5deg);}}
+  .poster h1{margin:0; font-size:clamp(38px,9vw,64px); line-height:1; color:var(--orange);
+    background:linear-gradient(transparent 70%,var(--yellow) 70%); display:inline-block; padding:0 8px;}
+  .poster p{margin:10px auto 0; max-width:580px; line-height:1.55; color:var(--dim); font-size:15px;}
+
+  /* ===== tabs ===== */
+  nav.tabs{position:sticky; top:0; z-index:20; background:rgba(120,78,40,.92); backdrop-filter:blur(6px); padding:9px 10px; overflow-x:auto; white-space:nowrap;}
+  nav.tabs::-webkit-scrollbar{height:5px;} nav.tabs::-webkit-scrollbar-thumb{background:#e8c9a4; border-radius:4px;}
+  .tab{display:inline-flex; align-items:center; gap:6px; background:var(--paper); border:2px solid transparent; color:var(--dim);
+    font-weight:700; font-size:14px; padding:8px 14px; border-radius:6px; margin-right:7px; cursor:pointer; transition:.15s; box-shadow:0 3px 0 rgba(0,0,0,.2);}
+  .tab:hover{transform:translateY(-2px);}
+  .tab.on{background:var(--c); color:#fff; transform:translateY(2px); box-shadow:none;}
+
+  main{max-width:880px; margin:0 auto; padding:24px 12px;}
+  .station{display:none; animation:fade .3s ease;} .station.on{display:block;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);}to{opacity:1; transform:none;}}
+  .t-start{--acc:#3d3a56; --soft:#efedf6;} .t-voc{--acc:var(--orange); --soft:var(--orange-soft);}
+  .t-gram{--acc:var(--violet); --soft:var(--violet-soft);} .t-train{--acc:var(--green); --soft:var(--green-soft);}
+  .t-survey{--acc:var(--blue); --soft:var(--blue-soft);} .t-inf{--acc:var(--pink); --soft:var(--pink-soft);}
+
+  .card{position:relative; background:var(--paper); border-radius:6px; padding:22px 18px 18px; margin:0 0 22px;
+    box-shadow:0 4px 0 rgba(90,55,20,.22),0 8px 16px rgba(60,35,10,.2);}
+  .card::before{content:''; position:absolute; top:-9px; left:50%; width:17px; height:17px; border-radius:50%; background:var(--acc);
+    transform:translateX(-50%); box-shadow:0 3px 0 rgba(0,0,0,.28),inset -3px -3px 0 rgba(0,0,0,.22);}
+  .card h2{margin:0 0 6px; font-size:32px; color:var(--acc); line-height:1.1;}
+  .card h3{margin:0 0 6px; font-size:25px; color:var(--ink); line-height:1.15;}
+  .card p{line-height:1.6; margin:6px 0;}
+  .hl{background:linear-gradient(transparent 58%,var(--yellow) 58%); padding:0 3px;}
+  .muted{color:var(--dim); font-size:14px;}
+  .badge{display:inline-block; background:var(--acc); color:#fff; font-weight:800; font-size:12px; padding:3px 12px; border-radius:999px; margin-bottom:8px; letter-spacing:.3px;}
+  .btn{background:var(--acc); color:#fff; border:none; border-radius:10px; padding:11px 20px; font-family:'Nunito'; font-weight:800; font-size:14.5px; cursor:pointer; box-shadow:0 3px 0 rgba(0,0,0,.2);}
+  .btn:active{transform:translateY(2px); box-shadow:none;}
+  .btn.ghost{background:#fff; color:var(--dim); border:2px solid var(--line); box-shadow:none;}
+  .btn.sm{padding:7px 14px; font-size:13px; border-radius:9px;}
+  .navb{display:flex; gap:10px; margin-top:4px;} .navb .btn{flex:1;}
+  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+
+  /* start */
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; margin-top:10px;}
+  .step{border:2px dashed var(--line); border-radius:12px; padding:12px; background:#fff; cursor:pointer; transition:.15s;}
+  .step:hover{border-color:var(--c); transform:translateY(-2px);}
+  .step .n{display:inline-flex; width:30px; height:30px; border-radius:50%; background:var(--c); color:#fff; font-weight:800; align-items:center; justify-content:center; margin-bottom:6px;}
+  .step b{display:block; font-size:16px;} .step span{font-size:13.5px; color:var(--dim);}
+  .formula{display:flex; flex-wrap:wrap; gap:6px; align-items:center; justify-content:center; font-size:19px; font-weight:800; margin:12px 0;}
+  .tk{padding:6px 12px; border-radius:10px; background:#fff; border:2px solid var(--line);}
+  .tk.s{background:var(--blue-soft); border-color:#9ec5ee;} .tk.a{background:var(--orange-soft); border-color:#f3b48f;} .tk.v{background:var(--yellow-soft); border-color:#e8cf5a;} .tk.g{background:var(--green-soft); border-color:#95d4a0;}
+  .scale{display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; margin:12px 0;}
+  .lv{background:#fff; border:3px solid var(--c); border-radius:14px; padding:10px 8px; text-align:center;}
+  .lv span{display:block; font-size:34px;} .lv b{display:block; font-size:16px; color:var(--c);} .lv small{color:var(--dim); font-size:12.5px; line-height:1.3; display:block;}
+
+  /* vocab */
+  .subtabs{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:18px;}
+  .sub{display:inline-flex; gap:6px; align-items:center; background:var(--paper); border:2px solid var(--line); border-radius:999px; padding:7px 13px; font-weight:700; font-size:13.5px; cursor:pointer; color:var(--dim);}
+  .sub small{background:#f1ead9; border-radius:999px; padding:0 7px; font-size:11.5px;}
+  .sub.on{background:var(--c); border-color:var(--c); color:#fff;} .sub.on small{background:rgba(255,255,255,.28); color:#fff;}
+  .vsec{display:none;} .vsec.on{display:block;}
+  .wgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media(max-width:660px){.wgrid{grid-template-columns:1fr;}}
+  .wc{display:flex; gap:10px; background:var(--paper); border-radius:5px; padding:12px 12px 10px; position:relative; box-shadow:0 3px 0 rgba(90,55,20,.2),0 6px 10px rgba(60,35,10,.15);}
+  .wc::before{content:''; position:absolute; top:-6px; left:14px; width:11px; height:11px; border-radius:50%; background:var(--c,#e8590c); box-shadow:0 2px 0 rgba(0,0,0,.25);}
+  .wc .we{font-size:34px; width:46px; text-align:center; flex:none; line-height:1.2;}
+  .wc .wt{display:flex; align-items:center; gap:7px; flex-wrap:wrap;} .wc .wt b{font-size:18px;}
+  .tg{background:var(--yellow-soft); border:1px solid #ecd45a; border-radius:999px; font-size:11.5px; font-weight:800; padding:0 8px; color:#6b5a00;}
+  .tg.play{background:var(--orange-soft); border-color:#f3b48f; color:#a8400a;} .tg.do{background:var(--green-soft); border-color:#95d4a0; color:#1b6b2c;} .tg.go{background:var(--blue-soft); border-color:#9ec5ee; color:#14558f;}
+  .say{border:none; background:#f1ead9; border-radius:50%; width:26px; height:26px; cursor:pointer; font-size:13px; flex:none;}
+  .wc .wr{color:var(--orange); font-weight:800; font-size:14.5px;}
+  .wc .wx{font-size:13.3px; margin-top:3px; line-height:1.4;} .wc .wx i{display:block; color:var(--dim); font-style:normal;}
+  .usage{background:var(--orange-soft); border-radius:10px; padding:12px 16px; margin:16px 0 12px;}
+  .usage h4,.warn h4{margin:0 0 6px; font-family:'Pangolin'; font-size:22px;}
+  .usage ul,.warn ul{margin:0; padding-left:18px; line-height:1.55; font-size:14.5px;}
+  .usage li span{display:block; color:var(--dim); font-size:13px;}
+  .warn{background:var(--yellow-soft); border:2px dashed #e0c33a; border-radius:10px; padding:12px 16px; margin:12px 0;}
+  .bub{max-width:92%; padding:9px 13px; border-radius:16px; margin:7px 0; display:flex; gap:8px; align-items:flex-start; font-size:15px; line-height:1.4;}
+  .bub.q{background:var(--green-soft); border-top-left-radius:3px;} .bub.a{background:var(--blue-soft); margin-left:auto; border-top-right-radius:3px;} .bub.r{background:var(--violet-soft); border-radius:16px;}
+  .bub small{display:block; color:var(--dim); font-size:12.8px;}
+  .who{font-family:'Pangolin'; font-size:23px; margin:12px 0 0;}
+
+  /* tables, boxes */
+  table.tbl{width:100%; border-collapse:collapse; font-size:14px; margin:8px 0;}
+  .tbl th,.tbl td{padding:8px 9px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+  .tbl th{font-size:12px; color:var(--acc); text-transform:uppercase; letter-spacing:.3px;}
+  .ex{background:var(--soft); border-left:4px solid var(--acc); border-radius:8px; padding:7px 12px; margin:6px 0; font-size:15px;}
+  .ex .ru{color:var(--dim); font-size:13.3px;}
+  .note{background:var(--yellow-soft); border:1px dashed #e0c33a; border-radius:10px; padding:9px 12px; margin:8px 0; font-size:14px; line-height:1.5;}
+  .pills{display:flex; flex-wrap:wrap; gap:7px; margin:8px 0;}
+  .pillx{background:var(--soft); border-radius:999px; padding:5px 12px; font-size:13.5px; font-weight:700;}
+  .recipe{counter-reset:s; list-style:none; padding:0; margin:8px 0;}
+  .recipe li{counter-increment:s; position:relative; padding:9px 12px 9px 48px; margin:7px 0; background:var(--soft); border-radius:10px; line-height:1.5; font-size:14.8px;}
+  .recipe li::before{content:counter(s); position:absolute; left:10px; top:8px; width:28px; height:28px; border-radius:50%; background:var(--acc); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center;}
+  .recipe em{color:var(--acc); font-style:normal; font-weight:800;}
+
+  /* builder */
+  .ctl{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0;}
+  .ctl .btn{box-shadow:none;} .ctl .btn.off{opacity:.35; pointer-events:none;}
+  .ctl-l{font-weight:800; font-size:13px; color:var(--dim); margin-top:10px;}
+  select.sel{font-family:'Nunito'; font-weight:700; font-size:14.5px; padding:8px 10px; border:2px solid var(--line); border-radius:10px; background:#fff;}
+  .bout{background:#fff; border:3px solid var(--acc); border-radius:14px; padding:14px; margin-top:12px; text-align:center;}
+  .bout .big{font-size:24px; font-weight:800; margin:8px 0; font-family:'Pangolin';}
+
+  /* quiz */
+  .quiz-q{margin:15px 0 4px;}
+  .qtext{font-weight:800; margin-bottom:8px; font-size:15.5px; line-height:1.45;}
+  .bigemo{font-size:40px; margin-right:6px; vertical-align:middle;}
+  .gap{display:inline-block; min-width:34px; text-align:center; border-bottom:3px solid var(--acc); color:var(--acc); font-weight:800;}
+  .opts{display:flex; flex-wrap:wrap; gap:8px;}
+  .opt{background:#fff; border:2px solid var(--line); color:var(--ink); font-family:'Nunito'; font-weight:700; font-size:14.5px; padding:9px 15px; border-radius:10px; cursor:pointer; transition:.12s; text-align:left;}
+  .opt:hover:not(:disabled){border-color:var(--acc); transform:translateY(-1px);}
+  .opt:disabled{cursor:default;}
+  .opt.ok{background:var(--ok); border-color:var(--ok); color:#fff;} .opt.bad{background:var(--bad); border-color:var(--bad); color:#fff;}
+  .fb{display:none; margin-top:8px; padding:9px 13px; border-radius:10px; font-size:14px; line-height:1.5; font-weight:700;}
+  .fb.show{display:block;} .fb.ok{background:#d8f5de; color:#17622a;} .fb.bad{background:#ffe3e3; color:#a52a2a;}
+  .mini-score{margin-top:10px; font-weight:800; font-size:13.5px; color:var(--acc);}
+  .task-head{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .task-head .n{background:var(--acc); color:#fff; border-radius:9px; font-weight:800; padding:2px 11px; font-size:14px;}
+  .task-head h3{margin:0;}
+  .pool,.bin-body,.line{display:flex; flex-wrap:wrap; gap:8px; min-height:44px;}
+  .pool{background:#faf6e8; border:2px dashed var(--line); border-radius:10px; padding:10px; margin:8px 0;}
+  .line{background:#fff; border:2px solid var(--acc); border-radius:10px; padding:10px; margin:8px 0;}
+  .bins{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin-top:8px;}
+  .bin{border:2px solid var(--acc); border-radius:12px; padding:9px; cursor:pointer; background:var(--soft);} .bin h4{margin:0 0 6px; font-size:14px; color:var(--acc);}
+  .chip{background:#fff; border:2px solid var(--line); border-radius:9px; padding:6px 11px; font-weight:700; font-size:14px; cursor:pointer; user-select:none;}
+  .chip.sel{border-color:var(--violet); box-shadow:0 0 0 3px #d6c8ff;}
+  .chip.ok{background:var(--ok); border-color:var(--ok); color:#fff;} .chip.bad{background:var(--bad); border-color:var(--bad); color:#fff;}
+  .typerow{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:10px 0;}
+  .typerow .e{font-size:32px; width:44px; text-align:center;} .typerow .r{flex:1; min-width:140px; font-weight:700;}
+  .typerow input,.inp{font-family:'Nunito'; font-weight:700; font-size:15px; padding:8px 11px; border:2px solid var(--line); border-radius:10px; width:190px;}
+  .typerow input:focus,.inp:focus{outline:none; border-color:var(--acc);}
+  .typerow input.ok{border-color:var(--ok); background:#d8f5de;} .typerow input.bad{border-color:var(--bad); background:#ffe3e3;}
+  .story{background:#fff; border-left:5px solid var(--acc); border-radius:8px; padding:12px 14px; line-height:1.65; margin:10px 0; font-size:15.5px;}
+
+  /* survey */
+  .srow{background:#fff; border:2px solid var(--line); border-radius:12px; padding:10px 12px; margin:10px 0;}
+  .srow .q{font-weight:800; margin-bottom:8px;}
+  .cells{display:grid; grid-template-columns:repeat(5,1fr); gap:6px;}
+  @media(max-width:520px){.cells{grid-template-columns:repeat(3,1fr);}}
+  .cell{border:2px solid var(--line); border-radius:10px; padding:6px 2px; text-align:center; background:#fafafa;}
+  .cell .em{font-size:26px; cursor:pointer; display:block; line-height:1.2;} .cell small{display:block; font-size:11px; color:var(--dim);}
+  .cell b{font-size:18px; color:var(--acc);} .cell .mn{border:none; background:#eee; border-radius:6px; font-size:12px; cursor:pointer; margin-left:4px; padding:0 6px;}
+  textarea.write{width:100%; min-height:150px; font-family:'Nunito'; font-size:15.5px; line-height:1.55; border:2px solid var(--ink); border-radius:10px; padding:12px; resize:vertical;}
+  textarea.write:focus{outline:none; border-color:var(--acc);}
+  .checklist{list-style:none; padding:0; margin:10px 0;}
+  .checklist li{padding:6px 10px; border-radius:9px; margin:5px 0; background:#f6f2e5; font-size:14.3px; display:flex; gap:8px;}
+  .checklist li.done{background:#d8f5de; color:#17622a; font-weight:700;}
+  .prog{height:12px; background:#eadfc8; border-radius:8px; overflow:hidden; margin:8px 0;} .prog i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--orange),var(--green)); transition:width .3s;}
+  .model{display:none; background:var(--green-soft); border:2px dashed var(--green); border-radius:10px; padding:12px 14px; margin-top:10px; line-height:1.65; font-size:15.5px;}
+  .model.show{display:block;}
+  .report{background:#fff; border:2px dashed var(--blue); border-radius:10px; padding:12px 14px; margin-top:10px; line-height:1.7; font-size:15.5px; display:none;}
+  .report.show{display:block;}
+  .askbox{background:var(--blue-soft); border-radius:12px; padding:14px; margin-top:10px; text-align:center;}
+  .askbox .big{font-family:'Pangolin'; font-size:26px;}
+
+  /* infinite */
+  .chips{display:flex; gap:7px; flex-wrap:wrap; margin:8px 0 12px;}
+  .fchip{border:2px solid var(--line); background:#fff; border-radius:999px; padding:6px 14px; font-weight:800; font-size:13px; cursor:pointer; color:var(--dim);}
+  .fchip.on{background:var(--pink); border-color:var(--pink); color:#fff;}
+  .panel{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; background:var(--pink-soft); border-radius:12px; padding:12px 16px; margin-bottom:10px;}
+  .metric{font-size:12px; color:var(--dim); font-weight:700;} .metric b{display:block; font-size:24px; color:var(--pink);} .metric.fire b{color:var(--orange);}
+  .goal{font-size:13px; color:var(--dim); font-weight:700;} .goal select{font-family:'Nunito'; border:2px solid var(--line); border-radius:8px; padding:4px 6px; margin-left:4px;}
+  .bars{display:flex; gap:3px; align-items:flex-end; height:28px; margin:6px 0 10px; flex-wrap:wrap;}
+  .bars span{width:8px; height:14px; border-radius:3px; background:#eadfc8; transition:.2s;} .bars span.lit{background:var(--orange); height:26px;}
+  .banner{display:none; background:linear-gradient(90deg,#ffe29a,#ffc0d3); border-radius:10px; padding:12px 16px; font-weight:800; margin:8px 0;} .banner.show{display:block;}
+  .cta{display:block; margin:16px auto 0;}
+  footer{text-align:center; color:#fff7e8; font-size:13px; padding:22px 12px 6px; text-shadow:0 1px 2px rgba(0,0,0,.3);}
+  @media print{.hero,nav.tabs,.subtabs,.navb,.say,.btn{display:none!important;} body{background:#fff;} .station{display:none!important;} .station.t-voc{display:block!important;} .vsec{display:none!important;} .vsec.on{display:block!important;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="poster">
+    <div class="floaters"><span>🎸</span><span>🎨</span><span>⚽</span><span>🎮</span><span>📷</span><span>🚴</span></div>
+    <h1>My Free Time</h1>
+    <p>Хобби, увлечения и свободное время. Учим слова, говорим <b>I love dancing</b>, <b>I don't mind cooking</b>, <b>I hate waiting</b> и проводим опрос в классе.</p>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"></nav>
+
+<main>
+
+<!-- 0 START -->
+<section class="station t-start on" data-i="0">
+  <div class="card">
+    <span class="badge">СТАРТ</span>
+    <h2>Что мы учим на этом уроке</h2>
+    <p>Тема: <b>хобби и свободное время</b>. Главная грамматика: <span class="hl">like / love / hate / don't mind + глагол с -ing</span>. Выучим больше <b id="wcount">200</b> слов и фраз, научимся рассказывать о хобби и проведём опрос класса.</p>
+    <div class="formula"><span class="tk s">I / We / You / They</span><span class="tk a">love · like · enjoy · hate</span><span class="tk g">V-ing</span></div>
+    <div class="formula" style="margin-top:-4px"><span class="tk s">He / She</span><span class="tk a">loves · likes · enjoys · hates</span><span class="tk g">V-ing</span></div>
+    <p class="muted" style="text-align:center">Например: <b>I love swimming. She hates cooking. They don't mind waiting.</b></p>
+    <div class="steps" id="steps"></div>
+  </div>
+  <div class="card">
+    <h3>✍️ Как переписывать тему в тетрадь</h3>
+    <p>Из каждого раздела словаря перепиши слова: <b>слово — перевод</b> и <b>одно предложение</b> (можно своё!). Особенно важны разделы «Шкала симпатий» и «Спорт и хобби»: у слов написано, с каким глаголом они дружат: <b>play</b>, <b>do</b> или <b>go</b>.</p>
+    <p class="muted">Кнопка 🔊 произносит слово вслух. Раздел можно распечатать кнопкой в «Словаре».</p>
+  </div>
+</section>
+
+<!-- 1 VOCAB -->
+<section class="station t-voc" data-i="1">
+  <div class="card">
+    <span class="badge">СЛОВАРЬ</span>
+    <h2>Все слова темы по разделам</h2>
+    <p class="muted">Выбери раздел. У каждого слова есть перевод, пример и кнопка 🔊. В каждом разделе есть «как использовать» и «осторожно, ловушки».</p>
+    <div class="row"><button class="btn sm" onclick="window.print()">🖨️ Печать раздела</button></div>
+  </div>
+  <div class="subtabs" id="subtabs"></div>
+  <div id="vbody"></div>
+  <div class="navb"><button class="btn ghost" onclick="goTo(0)">← Назад</button><button class="btn" onclick="goTo(2)">Дальше: грамматика →</button></div>
+</section>
+
+<!-- 2 GRAMMAR -->
+<section class="station t-gram" data-i="2">
+  <div class="card">
+    <span class="badge">ГРАММАТИКА</span>
+    <h2>Like / love / hate / don't mind + V-ing</h2>
+    <p>Когда мы говорим, что нам <b>нравится</b> или <b>не нравится</b> какое-то занятие, после глагола чувства ставим <b>глагол с окончанием -ing</b>.</p>
+    <div class="formula"><span class="tk s">Подлежащее</span><span class="tk a">love / like / enjoy / hate / (don't) mind</span><span class="tk g">V-ing</span></div>
+    <table class="tbl"><tr><th></th><th>I / you / we / they</th><th>he / she / it</th></tr>
+      <tr><td><b>+</b></td><td>I love dancing.</td><td>She loves dancing.</td></tr>
+      <tr><td><b>−</b></td><td>I don't like cooking.</td><td>He doesn't like cooking.</td></tr>
+      <tr><td><b>?</b></td><td>Do you like swimming?<br>— Yes, I do. / No, I don't.</td><td>Does she like swimming?<br>— Yes, she does. / No, she doesn't.</td></tr>
+      <tr><td>Wh-</td><td>What do you like doing?</td><td>What does he like doing?</td></tr></table>
+    <div class="note">⚠️ После этих глаголов <b>нельзя</b> ставить обычную форму: <span style="color:var(--bad)">✗ I like swim</span>, <span style="color:var(--bad)">✗ I enjoy to swim</span>. Правильно: <b>✓ I like swimming</b>. После <b>like / love</b> можно и существительное: <i>I like music, I love pizza</i>.</div>
+  </div>
+
+  <div class="card">
+    <h3>🛠 Конструктор предложений</h3>
+    <p class="muted">Выбирай части, и предложение соберётся само. Цвета показывают, из чего оно состоит.</p>
+    <div class="ctl-l">Кто?</div><div class="ctl" id="bSubj"></div>
+    <div class="ctl-l">Что чувствует?</div><div class="ctl" id="bVerb"></div>
+    <div class="ctl-l">Тип предложения</div><div class="ctl" id="bMode"></div>
+    <div class="ctl-l">Занятие</div><div class="ctl"><select class="sel" id="bAct"></select></div>
+    <div class="bout"><div class="row" style="justify-content:center" id="bForm"></div><div class="big" id="bSent"></div><div class="muted" id="bRule"></div><button class="say" id="bSay" data-say="">🔊</button></div>
+  </div>
+
+  <div class="card">
+    <h3>1️⃣ Другие глаголы и выражения с -ing</h3>
+    <p>Не только like, love и hate. После этих слов тоже всегда <b>-ing</b>:</p>
+    <div class="pills">
+      <span class="pillx">enjoy <small class="muted">наслаждаться</small></span><span class="pillx">don't mind <small class="muted">не против</small></span><span class="pillx">can't stand <small class="muted">терпеть не могу</small></span>
+      <span class="pillx">adore <small class="muted">обожать</small></span><span class="pillx">dislike <small class="muted">не любить</small></span><span class="pillx">finish <small class="muted">закончить</small></span>
+      <span class="pillx">practise <small class="muted">тренироваться</small></span><span class="pillx">be good at</span><span class="pillx">be bad at</span><span class="pillx">be interested in</span><span class="pillx">be keen on</span><span class="pillx">be fond of</span><span class="pillx">be crazy about</span><span class="pillx">be into</span>
+    </div>
+    <div class="ex">I'm good at <b>drawing</b>. <div class="ru">Я хорошо рисую.</div></div>
+    <div class="ex">She's interested in <b>collecting</b> stamps. <div class="ru">Она интересуется коллекционированием марок.</div></div>
+    <div class="ex">He can't stand <b>waiting</b> for the bus. <div class="ru">Он терпеть не может ждать автобус.</div></div>
+    <div id="g1"></div>
+  </div>
+
+  <div class="card">
+    <h3>2️⃣ Как добавить -ing</h3>
+    <table class="tbl"><tr><th>Правило</th><th>Примеры</th></tr>
+      <tr><td>Обычно просто <b>+ing</b></td><td>play → playing, read → reading, draw → drawing, paint → painting, fish → fishing, sing → singing</td></tr>
+      <tr><td>Немая <b>-e</b> в конце — убираем e</td><td>dance → dancing, bake → baking, ride → riding, skate → skating, write → writing, make → making, hike → hiking</td></tr>
+      <tr><td>Одна гласная + одна согласная в коротком слове — <b>удваиваем</b> согласную</td><td>swim → swimming, run → running, shop → shopping, get → getting, chat → chatting, jog → jogging</td></tr>
+      <tr><td>Слова на <b>-ie</b>: ie → y</td><td>lie → lying, die → dying</td></tr>
+      <tr><td>Слова на <b>-i</b> (ski) — просто +ing</td><td>ski → skiing</td></tr></table>
+    <div id="g2"></div>
+  </div>
+
+  <div class="card">
+    <h3>3️⃣ Play, do или go?</h3>
+    <p>Для разных занятий нужны разные глаголы. Выучи три группы:</p>
+    <table class="tbl"><tr><th>Глагол</th><th>С чем</th><th>Примеры</th></tr>
+      <tr><td><b style="color:#a8400a">play</b></td><td>игры с мячом, командные игры, настольные и видеоигры, <b>музыкальные инструменты (с the)</b></td><td>play football · play chess · play video games · play <b>the</b> guitar</td></tr>
+      <tr><td><b style="color:#1b6b2c">do</b></td><td>занятия без мяча и без команды: единоборства, йога, гимнастика, пазлы, оригами</td><td>do karate · do yoga · do gymnastics · do puzzles</td></tr>
+      <tr><td><b style="color:#14558f">go</b></td><td>занятия с окончанием <b>-ing</b>: плавание, лыжи, походы, рыбалка</td><td>go swimming · go skiing · go fishing · go hiking · go shopping</td></tr></table>
+    <div class="ex">We <b>go swimming</b> on Sundays. I <b>play the piano</b> every day. <div class="ru">Мы плаваем по воскресеньям. Я играю на пианино каждый день.</div></div>
+    <div id="g3"></div>
+  </div>
+
+  <div class="card">
+    <h3>4️⃣ Привычки: Present Simple и «как часто»</h3>
+    <p>Мы говорим о хобби как о привычках, поэтому нужен <b>Present Simple</b>. Для he / she / it добавляем <b>-s / -es</b>: plays, goes, watches, studies.</p>
+    <table class="tbl"><tr><th>Слово</th><th>Где стоит</th><th>Пример</th></tr>
+      <tr><td><b>always · usually · often · sometimes · rarely · never</b></td><td>перед основным глаголом, но после <b>to be</b></td><td>She <b>often</b> plays chess. He is <b>never</b> late.</td></tr>
+      <tr><td><b>every day · once a week · twice a month · at the weekend · on Saturdays</b></td><td>обычно в конце предложения</td><td>I go swimming <b>twice a week</b>.</td></tr>
+      <tr><td><b>How often …?</b></td><td>в начале вопроса</td><td><b>How often</b> do you play football?</td></tr></table>
+    <div id="g4"></div>
+  </div>
+
+  <div class="card">
+    <h3>5️⃣ Почему? — because + прилагательное</h3>
+    <div class="ex">I love skating <b>because it is fun</b>. <div class="ru">Я обожаю кататься на коньках, потому что это весело.</div></div>
+    <div class="ex">He hates fishing <b>because it is boring</b>. <div class="ru">Он терпеть не может рыбалку, потому что это скучно.</div></div>
+    <div class="pills">
+      <span class="pillx">👍 fun · exciting · relaxing · creative · healthy · amazing · easy · great</span>
+      <span class="pillx">👎 boring · tiring · dangerous · difficult · expensive · silly · terrible</span>
+    </div>
+    <div class="note">💡 Можно сказать <b>It makes me happy / relaxed / tired</b>: <i>Dancing makes me happy.</i></div>
+    <div id="g5"></div>
+  </div>
+
+  <div class="card">
+    <h3>6️⃣ Согласиться и не согласиться: Me too / Me neither</h3>
+    <table class="tbl"><tr><th>Говорят тебе</th><th>Согласен</th><th>Не согласен</th></tr>
+      <tr><td>I love painting. (+)</td><td><b>Me too!</b> / So do I!</td><td>Really? I don't. / <b>I don't!</b></td></tr>
+      <tr><td>I don't like cooking. (−)</td><td><b>Me neither.</b> / Neither do I.</td><td>Really? <b>I do</b>!</td></tr></table>
+    <div id="g6"></div>
+  </div>
+
+  <div class="card">
+    <h3>7️⃣ Приглашаем: Would you like to…? и Let's…</h3>
+    <div class="ex">Would you like <b>to come</b> to the cinema? — <b>Sure! / Great idea!</b> / Sorry, I can't. <div class="ru">Хочешь пойти в кино? — Конечно! / Отличная идея! / Извини, не могу.</div></div>
+    <div class="ex"><b>Let's go</b> skating! / Why don't we play tennis? / Do you want to join us?</div>
+    <div class="note">⚠️ <b>I like swimming</b> — мне вообще нравится плавать. <b>I'd like to swim</b> — я хочу поплавать сейчас или в будущем. После <b>would like</b> всегда <b>to + глагол</b>.</div>
+    <div id="g7"></div>
+  </div>
+
+  <div class="card">
+    <h3>🧭 Рецепт: как рассказать о своих хобби за 7 шагов</h3>
+    <ol class="recipe">
+      <li><em>Какие хобби?</em> In my free time I love … and …</li>
+      <li><em>Как часто?</em> I … once a week / every day / at the weekend.</li>
+      <li><em>Где и с кем?</em> I go swimming in the pool with my friends.</li>
+      <li><em>Почему?</em> I like it because it is fun / relaxing.</li>
+      <li><em>Что не нравится?</em> I don't like … / I hate … / I can't stand …</li>
+      <li><em>Что не против?</em> I don't mind …. / <em>В чём хорош?</em> I'm good at …</li>
+      <li><em>Мечта:</em> I'd like to try … / I'd like to learn …</li>
+    </ol>
+  </div>
+
+  <div class="navb"><button class="btn ghost" onclick="goTo(1)">← Назад</button><button class="btn" onclick="goTo(3)">К тренировке →</button></div>
+</section>
+
+<!-- 3 TRAINING -->
+<section class="station t-train" data-i="3">
+  <div class="card">
+    <span class="badge">ТРЕНИРОВКА</span>
+    <h2>Восемь заданий по теме</h2>
+    <p>Слова и предложения каждый раз выбираются случайно. Нажми «Новый набор», чтобы получить другие вопросы.</p>
+    <button class="btn" onclick="buildTraining()">🔄 Новый набор</button>
+  </div>
+  <div class="card"><div class="task-head"><span class="n">1</span><h3>Что на картинке?</h3></div><div id="e1"></div></div>
+  <div class="card"><div class="task-head"><span class="n">2</span><h3>Play, do или go?</h3></div><p class="muted">Нажми на слово, потом на корзину. Нажми на слово в корзине, чтобы вернуть его.</p><div id="e2"></div></div>
+  <div class="card"><div class="task-head"><span class="n">3</span><h3>Какое чувство? (шкала симпатий)</h3></div><p class="muted">Смотри на смайлик: он показывает, как человек относится к занятию.</p><div id="e3"></div></div>
+  <div class="card"><div class="task-head"><span class="n">4</span><h3>Найди правильное предложение</h3></div><div id="e4"></div></div>
+  <div class="card"><div class="task-head"><span class="n">5</span><h3>Собери предложение</h3></div><p class="muted">Нажимай на слова по порядку. Нажми на слово в строке, чтобы убрать его.</p><div id="e5"></div></div>
+  <div class="card"><div class="task-head"><span class="n">6</span><h3>Добавь -ing</h3></div><p class="muted">Напиши форму с -ing. Помни про правила: -e, удвоение, -ie.</p><div id="e6"></div></div>
+  <div class="card"><div class="task-head"><span class="n">7</span><h3>Мини-диалоги</h3></div><div id="e7"></div></div>
+  <div class="card"><div class="task-head"><span class="n">8</span><h3>Читаем и отвечаем</h3></div><p class="muted">Прочитай три короткие анкеты (кнопка 🔊 читает вслух) и ответь на вопросы.</p><div id="e8"></div></div>
+  <div class="navb"><button class="btn ghost" onclick="goTo(2)">← Назад</button><button class="btn" onclick="goTo(4)">К опросу класса →</button></div>
+</section>
+
+<!-- 4 SURVEY -->
+<section class="station t-survey" data-i="4">
+  <div class="card">
+    <span class="badge">ОПРОС КЛАССА И РАССКАЗ</span>
+    <h2>Опрашиваем, говорим, пишем</h2>
+    <p>Три части: <b>1) опрос</b> (с одноклассниками, родными или учителем), <b>2) вопросы для разговора в парах</b>, <b>3) письменный рассказ о своём свободном времени</b>.</p>
+  </div>
+
+  <div class="card">
+    <div class="task-head"><span class="n">1</span><h3>Опрос: Do you like …?</h3></div>
+    <p class="muted">Задавай каждому человеку шесть вопросов <b>«Do you like …?»</b>. Нажимай на смайлик, когда человек ответил (😍 love · 🙂 like · 😐 don't mind · 🙁 don't like · 😡 hate). Потом нажми «Составить отчёт» и получишь готовый текст по-английски.</p>
+    <div class="row"><label class="muted">Сколько человек опрошено: <input class="inp" type="number" min="1" max="30" value="5" id="svN" style="width:80px"></label><button class="btn sm" onclick="newSurvey()">🎲 Новые вопросы</button></div>
+    <div id="survey"></div>
+    <div class="row" style="margin-top:12px"><button class="btn" onclick="makeReport()">📝 Составить отчёт</button><button class="btn ghost sm" id="repSay">🔊 Прочитать вслух</button></div>
+    <div class="report" id="report"></div>
+  </div>
+
+  <div class="card">
+    <div class="task-head"><span class="n">2</span><h3>Вопросы для разговора</h3></div>
+    <p class="muted">Работайте в парах: один спрашивает, другой отвечает полным предложением. Нажми «Случайный вопрос».</p>
+    <div class="askbox"><div class="big" id="askQ">What do you like doing in your free time?</div><div class="muted" id="askRu">Что ты любишь делать в свободное время?</div><div class="note" id="askH">Начни так: I like …ing …</div>
+      <div class="row" style="justify-content:center"><button class="btn" onclick="randomAsk()">🎲 Случайный вопрос</button><button class="say" id="askSay" data-say="What do you like doing in your free time?">🔊</button></div></div>
+  </div>
+
+  <div class="card">
+    <div class="task-head"><span class="n">3</span><h3>Напиши о своём свободном времени</h3></div>
+    <p class="muted">Пиши по-английски, минимум 6 предложений. Список проверки обновляется, пока ты пишешь.</p>
+    <textarea class="write" id="wr" placeholder="Hi! In my free time I ..." spellcheck="false"></textarea>
+    <div class="prog"><i id="wprog"></i></div><div class="muted" id="wmsg"></div>
+    <ul class="checklist" id="wlist"></ul>
+    <div class="row"><button class="btn sm" onclick="$('model').classList.toggle('show')">Показать / скрыть образец</button><button class="btn sm ghost" id="msay">🔊 Прочитать вслух</button></div>
+    <div class="model" id="model"></div>
+  </div>
+  <div class="navb"><button class="btn ghost" onclick="goTo(3)">← Назад</button><button class="btn" onclick="goTo(5)">К бесконечному тренажёру →</button></div>
+</section>
+
+<!-- 5 INFINITE -->
+<section class="station t-inf" data-i="5">
+  <div class="card">
+    <span class="badge">БЕСКОНЕЧНЫЙ ТРЕНАЖЁР</span>
+    <h2>Тренируйся, пока не поймаешь фишку</h2>
+    <p>Каждый раз новый случайный вопрос по теме. <b>Серия 🔥</b> сбрасывается при первой ошибке, поэтому заучить не получится, нужно понять правила. Выбери цель серии и тему вопросов.</p>
+    <div class="chips" id="filters"></div>
+    <div class="panel">
+      <div class="metric">Правильно<b id="iScore">0</b></div><div class="metric">Всего<b id="iTotal">0</b></div>
+      <div class="metric fire">🔥 Серия<b id="iStreak">0</b></div><div class="metric">Рекорд<b id="iBest">0</b></div>
+      <div class="goal">Цель серии: <select id="goalSel" onchange="setGoal()"><option>10</option><option selected>20</option><option>30</option><option>50</option></select></div>
+      <button class="btn ghost sm" onclick="resetInf()">Сбросить</button>
+    </div>
+    <div class="bars" id="bars"></div><div class="banner" id="banner"></div>
+    <div id="iq"></div>
+    <button class="btn cta" onclick="nextInf()">Следующий вопрос →</button>
+  </div>
+  <div class="navb"><button class="btn ghost" onclick="goTo(4)">← К опросу</button></div>
+</section>
+
+</main>
+<footer>My Free Time · хобби и увлечения · любим, не любим, не против и всегда с -ing 🎸</footer>
+
+<script>
+/* ================= helpers ================= */
+const $=id=>document.getElementById(id);
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function shuffle(a){const r=a.slice();for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];}return r;}
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const NUMW=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'];
+const numw=n=>n<=12?NUMW[n]:String(n);
+function speak(t){ if(!('speechSynthesis' in window)) return; try{speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t); u.lang='en-GB'; u.rate=.9; speechSynthesis.speak(u);}catch(e){} }
+document.addEventListener('click',e=>{const b=e.target.closest('[data-say]'); if(b&&b.dataset.say) speak(b.dataset.say);});
+
+const TABS=[{i:'🎯',l:'Старт',c:'#3d3a56'},{i:'📚',l:'Словарь',c:'#e8590c'},{i:'🧱',l:'Грамматика',c:'#7048e8'},{i:'🎮',l:'Тренировка',c:'#2b8a3e'},{i:'📋',l:'Опрос класса',c:'#1971c2'},{i:'🔁',l:'Тренажёр ∞',c:'#d6336c'}];
+TABS.forEach((t,k)=>{const b=document.createElement('div'); b.className='tab'; b.style.setProperty('--c',t.c); b.innerHTML=`${t.i} ${t.l}`; b.onclick=()=>goTo(k); $('tabs').appendChild(b);});
+function goTo(i){
+  document.querySelectorAll('.station').forEach(el=>el.classList.toggle('on',+el.dataset.i===i));
+  document.querySelectorAll('.tab').forEach((el,k)=>el.classList.toggle('on',k===i));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ================= VOCABULARY ================= */
+// I(word, ru, emoji, example, exampleRu, tag, x)   tag: 'play ...' | 'do ...' | 'go ...' | other label ; x = no picture quiz
+const I=(w,ru,e,ex,exru,tag,x)=>({w,ru,e,ex,exru,tag:tag||'',x:!!x});
+
+const SEC=[
+ {id:'feel',t:'Шкала симпатий',e:'😍',c:'#d6336c',quiz:false,
+  intro:'Как сказать, что тебе нравится или не нравится. Все эти выражения идут с <b>-ing</b> (или с существительным). Сначала посмотри на шкалу от «обожаю» до «терпеть не могу».',
+  extra:`<div class="scale">
+    <div class="lv" style="--c:#2b8a3e"><span>😍</span><b>love</b><small>adore · be crazy about<br>be fond of</small></div>
+    <div class="lv" style="--c:#66a80f"><span>😊</span><b>like · enjoy</b><small>be keen on · be into</small></div>
+    <div class="lv" style="--c:#f08c00"><span>😐</span><b>don't mind</b><small>мне всё равно, я не против</small></div>
+    <div class="lv" style="--c:#e8590c"><span>🙁</span><b>don't like</b><small>dislike · not keen on<br>not into</small></div>
+    <div class="lv" style="--c:#c92a2a"><span>😡</span><b>hate</b><small>can't stand</small></div></div>`,
+  items:[
+   I('love','обожать, очень любить','😍','I love dancing.','Я обожаю танцевать.','+ -ing'),
+   I('adore','обожать (сильнее)','🥰','She adores drawing animals.','Она обожает рисовать животных.','+ -ing'),
+   I('be crazy about','быть без ума от','🤩','I\'m crazy about football.','Я без ума от футбола.','about + -ing'),
+   I('be fond of','очень любить','💖','He is fond of reading.','Он очень любит читать.','of + -ing'),
+   I('be keen on','увлекаться','😃','We are keen on swimming.','Мы увлекаемся плаванием.','on + -ing'),
+   I('be into','увлекаться (разг.)','😎','I\'m into skateboarding.','Я увлекаюсь скейтбордингом.','into + -ing'),
+   I('enjoy','получать удовольствие, любить','😊','I enjoy cooking.','Мне нравится готовить.','+ -ing'),
+   I('like','нравиться, любить','🙂','I like painting.','Мне нравится рисовать красками.','+ -ing'),
+   I('prefer','предпочитать','🤔','I prefer cycling to running.','Я предпочитаю велосипед бегу.','prefer X to Y'),
+   I('don\'t mind','не против','😐','I don\'t mind walking to school.','Я не против ходить в школу пешком.','+ -ing'),
+   I('be not keen on','не очень любить','😕','I\'m not keen on fishing.','Я не очень люблю рыбалку.','on + -ing'),
+   I('don\'t like','не нравиться','🙁','She doesn\'t like swimming.','Ей не нравится плавать.','+ -ing'),
+   I('dislike','не любить','😒','He dislikes getting up early.','Он не любит вставать рано.','+ -ing'),
+   I('be not into','не увлекаться','🙄','I\'m not into video games.','Я не увлекаюсь видеоиграми.','into + -ing'),
+   I('can\'t stand','терпеть не могу','😖','I can\'t stand waiting.','Я терпеть не могу ждать.','+ -ing'),
+   I('hate','ненавидеть, терпеть не мочь','😡','I hate cleaning my room.','Я ненавижу убирать комнату.','+ -ing'),
+   I('be good at','хорошо уметь','😎','I\'m good at singing.','Я хорошо пою.','at + -ing'),
+   I('be bad at','плохо уметь','😬','I\'m bad at drawing.','Я плохо рисую.','at + -ing'),
+   I('be interested in','интересоваться','🧐','I\'m interested in photography.','Я интересуюсь фотографией.','in + -ing'),
+   I('finish','закончить','🏁','I finished reading the book.','Я дочитал книгу.','+ -ing'),
+   I('stop','перестать','✋','Stop talking, please.','Перестаньте разговаривать, пожалуйста.','+ -ing'),
+   I('practise','тренироваться, заниматься','🔁','I practise playing the piano every day.','Я каждый день занимаюсь на пианино.','+ -ing'),
+   I('keep','продолжать','▶️','Keep trying!','Продолжай пробовать!','+ -ing')
+  ],
+  usage:[
+   ['I love dancing. She loves dancing.','Для he / she / it к глаголу добавляем -s: loves, likes, hates, enjoys.'],
+   ['I don\'t like cooking. He doesn\'t like cooking.','Отрицание: don\'t / doesn\'t + like, и снова -ing.'],
+   ['I\'m good at drawing.','После предлогов (at, of, on, in, about, into) тоже всегда -ing.'],
+   ['I like music. I love pizza.','После like и love может стоять и существительное.'],
+   ['Do you mind opening the window?','Do you mind …? — Вы не против …? (вежливая просьба)']],
+  warn:['Нельзя: <b>✗ I like swim</b>, <b>✗ I enjoy to swim</b>. Правильно: <b>✓ I like swimming</b>.','<b>don\'t mind</b> значит «не против, не возражаю», а не «не помню».','<b>hate</b> и <b>can\'t stand</b> — очень сильные слова. Вежливее: <i>I\'m not keen on…</i>','После <b>like</b> можно и <b>to + глагол</b> (I like to swim), но на этом уровне используй <b>-ing</b>.']},
+
+ {id:'creative',t:'Творчество и музыка',e:'🎨',c:'#e8590c',quiz:true,
+  intro:'Занятия для творческих людей. Справа у слова — глагол, с которым оно дружит.',
+  items:[
+   I('drawing','рисование (карандашом)','✏️','I like drawing animals.','Я люблю рисовать животных.','draw'),
+   I('painting','рисование красками','🎨','She loves painting with watercolours.','Она обожает рисовать акварелью.','paint'),
+   I('making models','собирать модели','🛩️','He enjoys making models of planes.','Ему нравится собирать модели самолётов.','make'),
+   I('building with Lego','строить из Lego','🧱','I love building with Lego.','Я обожаю строить из Lego.','build'),
+   I('origami','оригами','🦢','I don\'t mind doing origami.','Я не против делать оригами.','do origami'),
+   I('knitting','вязание','🧶','My grandma likes knitting scarves.','Моя бабушка любит вязать шарфы.','knit'),
+   I('sewing','шитьё','🧵','She is good at sewing.','Она хорошо шьёт.','sew'),
+   I('baking','выпечка','🧁','We love baking cakes at the weekend.','Мы обожаем печь пирожные на выходных.','bake'),
+   I('cooking','кулинария, готовка','🍳','Dad enjoys cooking pasta.','Папа любит готовить пасту.','cook'),
+   I('taking photos','фотографирование','📷','I like taking photos of nature.','Я люблю фотографировать природу.','take'),
+   I('writing stories','писать рассказы','✍️','She is keen on writing stories.','Она увлекается написанием рассказов.','write'),
+   I('reading','чтение','📖','I love reading comics.','Я обожаю читать комиксы.','read'),
+   I('singing','пение','🎤','He hates singing in public.','Он терпеть не может петь на публике.','sing'),
+   I('dancing','танцы','💃','My sister loves dancing.','Моя сестра обожает танцевать.','dance'),
+   I('the guitar','гитара','🎸','I like playing the guitar.','Я люблю играть на гитаре.','play the guitar'),
+   I('the piano','пианино','🎹','She practises playing the piano every day.','Она каждый день занимается на пианино.','play the piano'),
+   I('the violin','скрипка','🎻','He is good at playing the violin.','Он хорошо играет на скрипке.','play the violin'),
+   I('the drums','барабаны','🥁','I enjoy playing the drums.','Мне нравится играть на барабанах.','play the drums'),
+   I('acting','актёрская игра, театр','🎭','We are keen on acting in the school play.','Мы увлекаемся игрой в школьном спектакле.','act'),
+   I('making videos','снимать видео','🎬','He loves making videos for YouTube.','Он обожает снимать видео для YouTube.','make'),
+   I('drawing comics','рисовать комиксы','🖍️','I\'m into drawing comics.','Я увлекаюсь рисованием комиксов.','draw'),
+   I('puzzles','пазлы, головоломки','🧩','My mum likes doing puzzles.','Моя мама любит собирать пазлы.','do puzzles')
+  ],
+  usage:[
+   ['I like drawing. / She is good at singing.','I like + -ing. / be good at + -ing.'],
+   ['play the guitar / play the piano / play the drums','Музыкальные инструменты всегда с <b>the</b>.'],
+   ['bake a cake / cook dinner / take a photo / write a story','Глагол + предмет, если назвать, что именно.']],
+  warn:['<b>drawing</b> — рисовать карандашом, <b>painting</b> — красками (и ещё красить стены).','<b>cook</b> (готовить блюдо) и <b>bake</b> (печь в духовке) — разные слова.','Музыка: <b>play the guitar</b>, но <b>listen to music</b> (слушать музыку).']},
+
+ {id:'sport',t:'Спорт и хобби на воздухе',e:'⚽',c:'#2b8a3e',quiz:true,
+  intro:'Спорт и активный отдых. Запоминай слово вместе с глаголом <b>play</b>, <b>do</b> или <b>go</b>.',
+  items:[
+   I('swimming','плавание','🏊','I go swimming twice a week.','Я хожу плавать два раза в неделю.','go swimming'),
+   I('cycling','езда на велосипеде','🚴','We love cycling in the park.','Мы обожаем кататься на велосипедах в парке.','go cycling'),
+   I('running','бег','🏃','He loves running in the morning.','Он обожает бегать по утрам.','go running'),
+   I('hiking','походы','🥾','We go hiking in the mountains.','Мы ходим в походы в горы.','go hiking'),
+   I('fishing','рыбалка','🎣','My grandpa goes fishing every Sunday.','Мой дедушка ходит на рыбалку каждое воскресенье.','go fishing'),
+   I('skating','коньки','⛸️','I love skating in winter.','Я обожаю кататься на коньках зимой.','go skating'),
+   I('skiing','лыжи','⛷️','They go skiing in February.','Они катаются на лыжах в феврале.','go skiing'),
+   I('snowboarding','сноуборд','🏂','Snowboarding is exciting but dangerous.','Сноуборд — это увлекательно, но опасно.','go snowboarding'),
+   I('skateboarding','скейтборд','🛹','I\'m into skateboarding.','Я увлекаюсь скейтбордом.','go skateboarding'),
+   I('horse riding','верховая езда','🏇','She goes horse riding at the weekend.','Она ездит верхом на выходных.','go horse riding'),
+   I('sailing','парусный спорт','⛵','My uncle loves sailing.','Мой дядя обожает ходить под парусом.','go sailing'),
+   I('camping','кемпинг, поход с палатками','⛺','We go camping every summer.','Мы ездим в кемпинг каждое лето.','go camping'),
+   I('climbing','скалолазание','🧗','I\'m afraid of climbing.','Я боюсь лазать по скалам.','go climbing'),
+   I('football','футбол','⚽','We play football after school.','Мы играем в футбол после школы.','play football'),
+   I('basketball','баскетбол','🏀','He plays basketball for the school team.','Он играет в баскетбол за школьную команду.','play basketball'),
+   I('volleyball','волейбол','🏐','They play volleyball on the beach.','Они играют в волейбол на пляже.','play volleyball'),
+   I('tennis','теннис','🎾','She plays tennis twice a week.','Она играет в теннис два раза в неделю.','play tennis'),
+   I('table tennis','настольный теннис','🏓','I play table tennis with my dad.','Я играю в настольный теннис с папой.','play table tennis'),
+   I('badminton','бадминтон','🏸','We play badminton in the garden.','Мы играем в бадминтон в саду.','play badminton'),
+   I('hockey','хоккей','🏒','My brother plays hockey in winter.','Мой брат играет в хоккей зимой.','play hockey'),
+   I('karate','каратэ','🥋','He does karate on Tuesdays.','Он занимается каратэ по вторникам.','do karate'),
+   I('judo','дзюдо','🥋','She does judo after school.','Она занимается дзюдо после школы.','do judo'),
+   I('yoga','йога','🧘','My mum does yoga every morning.','Моя мама занимается йогой каждое утро.','do yoga'),
+   I('gymnastics','гимнастика','🤸','I do gymnastics three times a week.','Я занимаюсь гимнастикой три раза в неделю.','do gymnastics'),
+   I('athletics','лёгкая атлетика','🏅','He does athletics at the stadium.','Он занимается лёгкой атлетикой на стадионе.','do athletics'),
+   I('boxing','бокс','🥊','My cousin does boxing.','Мой двоюродный брат занимается боксом.','do boxing')
+  ],
+  usage:[
+   ['go + -ing: go swimming, go skiing, go fishing, go hiking','Занятия на «-ing», которые мы «идём делать».'],
+   ['play + игры и команды: play football, play chess, play the guitar','Игры, соревнования и музыкальные инструменты.'],
+   ['do + занятия без мяча: do karate, do yoga, do gymnastics','Единоборства, йога, гимнастика, головоломки.'],
+   ['I like swimming. / I go swimming on Sundays.','like swimming (вообще) и go swimming (регулярно).']],
+  warn:['Не говорим <b>✗ do football</b> или <b>✗ play swimming</b>. Проверь группу: football → <b>play</b>, swimming → <b>go</b>, karate → <b>do</b>.','<b>horse riding</b> — верховая езда, а <b>riding a bike</b> — езда на велосипеде.','Спорт-<b>ing</b> без гласных для игры: <b>I play football</b>, но <b>I go running</b>.']},
+
+ {id:'home',t:'Дома и технологии',e:'🎮',c:'#1971c2',quiz:true,
+  intro:'Что можно делать дома, с друзьями и с гаджетами.',
+  items:[
+   I('video games','видеоигры','🎮','I love playing video games after school.','Я обожаю играть в видеоигры после школы.','play video games'),
+   I('board games','настольные игры','🎲','We play board games on rainy days.','Мы играем в настольные игры в дождливые дни.','play board games'),
+   I('chess','шахматы','♟️','My grandpa plays chess very well.','Мой дедушка очень хорошо играет в шахматы.','play chess'),
+   I('cards','карты','🃏','They play cards in the evening.','Они играют в карты вечером.','play cards'),
+   I('films','фильмы','🍿','We enjoy watching films at the weekend.','Мы любим смотреть фильмы на выходных.','watch films'),
+   I('cartoons','мультфильмы','📺','My little brother loves watching cartoons.','Мой младший брат обожает смотреть мультики.','watch cartoons'),
+   I('music','музыка','🎧','I like listening to music on the bus.','Я люблю слушать музыку в автобусе.','listen to'),
+   I('the Internet','интернет','🌐','He spends hours surfing the Internet.','Он часами сидит в интернете.','surf'),
+   I('chatting with friends','переписываться с друзьями','💬','I enjoy chatting with friends online.','Мне нравится общаться с друзьями онлайн.','chat'),
+   I('coding','программирование','💻','She is interested in coding.','Она интересуется программированием.','code'),
+   I('collecting stamps','коллекционировать марки','✉️','My dad is keen on collecting stamps.','Мой папа увлекается коллекционированием марок.','collect'),
+   I('collecting coins','коллекционировать монеты','🪙','I like collecting old coins.','Я люблю коллекционировать старые монеты.','collect'),
+   I('collecting toys','коллекционировать игрушки','🧸','She loves collecting toys.','Она обожает коллекционировать игрушки.','collect'),
+   I('gardening','садоводство','🌱','My grandma loves gardening.','Моя бабушка обожает садоводство.','garden'),
+   I('walking the dog','гулять с собакой','🐕','I don\'t mind walking the dog.','Я не против гулять с собакой.','walk'),
+   I('looking after pets','ухаживать за питомцами','🐱','He is good at looking after pets.','Он хорошо ухаживает за питомцами.','look after'),
+   I('making slime','делать слайм','🧪','We love making slime.','Мы обожаем делать слайм.','make'),
+   I('learning languages','учить языки','🗣️','She is into learning languages.','Она увлекается изучением языков.','learn'),
+   I('blogging','вести блог','📝','He likes blogging about games.','Он любит вести блог об играх.','blog'),
+   I('watching YouTube','смотреть YouTube','▶️','I hate watching long videos.','Я терпеть не могу смотреть длинные видео.','watch')
+  ],
+  usage:[
+   ['play video games / play chess / play cards','Игры — с глаголом play.'],
+   ['watch films / watch cartoons, but listen to music','watch — смотреть, listen to — слушать.'],
+   ['I spend two hours (a day) playing video games.','spend time + -ing: проводить время за занятием.']],
+  warn:['<b>watch</b> — смотреть, <b>look</b> — глядеть (<i>look at</i>), <b>see</b> — видеть. Фильмы: <b>watch</b> films.','<b>listen to</b> music: нужен предлог <b>to</b>!','<b>the Internet</b> — с <b>the</b> (интернет один).']},
+
+ {id:'time',t:'Свободное время',e:'⏳',c:'#7048e8',quiz:true,
+  intro:'Слова о том, как мы проводим время вне школы.',
+  items:[
+   I('hobby','хобби','🎯','My hobby is photography.','Моё хобби — фотография.','a'),
+   I('free time','свободное время','⏳','What do you do in your free time?','Что ты делаешь в свободное время?','u'),
+   I('spare time','свободное время (синоним)','🕰️','I read in my spare time.','В свободное время я читаю.','u'),
+   I('weekend','выходные','📅','What do you do at the weekend?','Что ты делаешь на выходных?','a'),
+   I('holiday','каникулы, отпуск','🏖️','We go camping in the holidays.','На каникулах мы ездим в кемпинг.','a'),
+   I('interest','интерес, увлечение','🔍','Music is my main interest.','Музыка — моё главное увлечение.','an'),
+   I('club','кружок, клуб','🏫','I go to a chess club.','Я хожу в шахматный кружок.','a'),
+   I('team','команда','👥','He plays for the school team.','Он играет за школьную команду.','a'),
+   I('coach','тренер','🏅','Our coach is very strict.','Наш тренер очень строгий.','a'),
+   I('match','матч','🏟️','We have a football match on Saturday.','В субботу у нас футбольный матч.','a'),
+   I('competition','соревнование, конкурс','🏆','She won a dance competition.','Она выиграла конкурс танцев.','a'),
+   I('prize','приз','🥇','I won the first prize.','Я выиграл первый приз.','a'),
+   I('concert','концерт','🎤','We go to a concert tonight.','Сегодня вечером мы идём на концерт.','a'),
+   I('show','шоу, представление','🎪','The school show is on Friday.','Школьное шоу в пятницу.','a'),
+   I('lesson','урок, занятие','🎓','I have a guitar lesson on Tuesday.','У меня урок гитары во вторник.','a'),
+   I('practice','тренировка, репетиция','🔁','We have football practice after school.','У нас футбольная тренировка после школы.','u'),
+   I('trip','поездка, экскурсия','🚌','We go on a school trip to the zoo.','Мы едем с классом на экскурсию в зоопарк.','a'),
+   I('picnic','пикник','🧺','Let\'s have a picnic in the park!','Давай устроим пикник в парке!','a'),
+   I('party','вечеринка','🎉','I\'m going to a party on Saturday.','В субботу я иду на вечеринку.','a'),
+   I('sleepover','ночёвка у друга','🛏️','I have a sleepover at my friend\'s house.','У меня ночёвка у друга.','a'),
+   I('fan','фанат, болельщик','📣','I\'m a big football fan.','Я большой футбольный фанат.','a'),
+   I('favourite','любимый','⭐','Chess is my favourite game.','Шахматы — моя любимая игра.','adj'),
+   I('collection','коллекция','🗃️','He has a big stamp collection.','У него большая коллекция марок.','a'),
+   I('member','участник, член клуба','🪪','She is a member of the drama club.','Она участница театрального кружка.','a'),
+   I('event','мероприятие','🎟️','The sports event is next week.','Спортивное мероприятие на следующей неделе.','an'),
+   I('present','подарок','🎁','I got a guitar as a birthday present.','Мне подарили гитару на день рождения.','a')
+  ],
+  usage:[
+   ['I have a guitar lesson on Tuesday.','have + занятие + on + день недели.'],
+   ['I go to a chess club / the swimming pool / a concert.','go to + место или событие.'],
+   ['My favourite hobby is … / My hobby is …','Моё любимое хобби …']],
+  warn:['<b>free time</b> и <b>practice</b> — неисчисляемые: <i>some free time</i>, <i>football practice</i>.','<b>hobby</b> → <b>hobbies</b> (y → ies).','<b>holiday</b> (брит. «каникулы / отпуск») и <b>holidays</b> (каникулы); <b>vacation</b> — американский вариант.','<b>match</b> — матч (футбол, теннис), а <b>game</b> — игра в целом.']},
+
+ {id:'places',t:'Места и люди',e:'📍',c:'#f08c00',quiz:true,
+  intro:'Где проходит свободное время и с кем. После <b>at</b> и <b>in</b> ставим место.',
+  items:[
+   I('park','парк','🌳','We play football in the park.','Мы играем в футбол в парке.','in the park'),
+   I('cinema','кинотеатр','🎞️','We go to the cinema on Fridays.','По пятницам мы ходим в кино.','at the cinema'),
+   I('theatre','театр','🎭','She loves going to the theatre.','Она обожает ходить в театр.','at the theatre'),
+   I('museum','музей','🏛️','I like visiting museums.','Я люблю ходить в музеи.','at the museum'),
+   I('swimming pool','бассейн','🛟','I go swimming at the swimming pool.','Я хожу плавать в бассейн.','at the pool'),
+   I('sports centre','спортивный центр','🏟️','There is a gym in the sports centre.','В спортивном центре есть спортзал.','at the centre'),
+   I('stadium','стадион','🥅','The match is at the stadium.','Матч проходит на стадионе.','at the stadium'),
+   I('skate park','скейт-парк','🛹','He is at the skate park.','Он в скейт-парке.','at the skate park'),
+   I('library','библиотека','📚','I read books at the library.','Я читаю книги в библиотеке.','at the library'),
+   I('café','кафе','☕','We chat with friends at the café.','Мы болтаем с друзьями в кафе.','at the café'),
+   I('shopping centre','торговый центр','🛍️','We go to the shopping centre at the weekend.','На выходных мы ходим в торговый центр.','at the centre'),
+   I('youth club','молодёжный клуб','🧑‍🤝‍🧑','I meet friends at the youth club.','Я встречаюсь с друзьями в молодёжном клубе.','at the club'),
+   I('playground','детская площадка','🛝','Children play on the playground.','Дети играют на детской площадке.','on the playground'),
+   I('zoo','зоопарк','🦁','We visit the zoo in spring.','Мы ходим в зоопарк весной.','at the zoo'),
+   I('lake','озеро','🏞️','We go fishing at the lake.','Мы ловим рыбу на озере.','at the lake'),
+   I('forest','лес','🌲','We go hiking in the forest.','Мы ходим в походы в лесу.','in the forest'),
+   I('mountains','горы','⛰️','They go skiing in the mountains.','Они катаются на лыжах в горах.','in the mountains'),
+   I('beach','пляж','🏖️','We play volleyball on the beach.','Мы играем в волейбол на пляже.','on the beach'),
+   I('music school','музыкальная школа','🎼','She goes to music school.','Она ходит в музыкальную школу.','at music school'),
+   I('art school','художественная школа','🖼️','He studies at art school.','Он учится в художественной школе.','at art school'),
+   I('friends','друзья','👭','I play with my friends.','Я играю с друзьями.','with'),
+   I('family','семья','👨‍👩‍👧','We cook together as a family.','Мы готовим вместе всей семьёй.','with'),
+   I('teammates','товарищи по команде','🤝','I train with my teammates.','Я тренируюсь с товарищами по команде.','with'),
+   I('alone','один, в одиночестве','🧍','I like reading alone.','Я люблю читать в одиночестве.','adv')
+  ],
+  usage:[
+   ['in the park / in the forest / in the mountains','in + большая территория, помещение.'],
+   ['at the cinema / at the stadium / at the library','at + место, куда ходим по делу.'],
+   ['on the beach / on the playground','on + пляж, площадка.'],
+   ['I go to the cinema. I go home.','go to + место, но go home (без to).']],
+  warn:['<b>cinema</b> (брит.) и <b>movie theater</b> (амер.).','<b>museum</b> читается [мьюзИэм], а <b>theatre</b> — [тИэтэ].','<b>go to school / go to bed</b> — без артикля, а <b>go to the cinema / go to the park</b> — с артиклем.']},
+
+ {id:'freq',t:'Как часто?',e:'📆',c:'#2b8a3e',quiz:false,
+  intro:'Слова и выражения о частоте. Для хобби они нужны постоянно!',
+  extra:`<div class="scale">
+    <div class="lv" style="--c:#2b8a3e"><span>100%</span><b>always</b><small>всегда</small></div>
+    <div class="lv" style="--c:#66a80f"><span>90%</span><b>usually</b><small>обычно</small></div>
+    <div class="lv" style="--c:#94a800"><span>70%</span><b>often</b><small>часто</small></div>
+    <div class="lv" style="--c:#f08c00"><span>40%</span><b>sometimes</b><small>иногда</small></div>
+    <div class="lv" style="--c:#e8590c"><span>10%</span><b>rarely</b><small>редко</small></div>
+    <div class="lv" style="--c:#c92a2a"><span>0%</span><b>never</b><small>никогда</small></div></div>`,
+  items:[
+   I('always','всегда','🟢','I always do my homework first.','Я всегда сначала делаю домашнее задание.','перед глаголом'),
+   I('usually','обычно','🟢','She usually plays tennis on Mondays.','Обычно она играет в теннис по понедельникам.','перед глаголом'),
+   I('often','часто','🟡','We often go cycling.','Мы часто катаемся на велосипедах.','перед глаголом'),
+   I('sometimes','иногда','🟠','He sometimes plays chess.','Иногда он играет в шахматы.','перед глаголом'),
+   I('rarely','редко','🟠','I rarely watch TV.','Я редко смотрю телевизор.','перед глаголом'),
+   I('never','никогда','🔴','She never goes fishing.','Она никогда не ходит на рыбалку.','перед глаголом'),
+   I('every day','каждый день','📅','I practise the piano every day.','Я занимаюсь на пианино каждый день.','в конце'),
+   I('every weekend','каждые выходные','📅','We play volleyball every weekend.','Мы играем в волейбол каждые выходные.','в конце'),
+   I('once a week','раз в неделю','1️⃣','I go swimming once a week.','Я хожу плавать раз в неделю.','в конце'),
+   I('twice a week','два раза в неделю','2️⃣','He does judo twice a week.','Он занимается дзюдо два раза в неделю.','в конце'),
+   I('three times a week','три раза в неделю','3️⃣','We play football three times a week.','Мы играем в футбол три раза в неделю.','в конце'),
+   I('once a month','раз в месяц','🗓️','We go to the theatre once a month.','Мы ходим в театр раз в месяц.','в конце'),
+   I('once a year','раз в год','🎆','We go camping once a year.','Мы ездим в кемпинг раз в год.','в конце'),
+   I('on Saturdays','по субботам','📆','I play basketball on Saturdays.','По субботам я играю в баскетбол.','в конце'),
+   I('at the weekend','на выходных','🛋️','I relax at the weekend.','Я отдыхаю на выходных.','в начале или в конце'),
+   I('in the evening','вечером','🌆','I read in the evening.','Вечером я читаю.','в начале или в конце'),
+   I('after school','после школы','🎒','I draw after school.','После школы я рисую.','в начале или в конце'),
+   I('in my free time','в свободное время','⏳','In my free time I love dancing.','В свободное время я обожаю танцевать.','в начале или в конце'),
+   I('in summer','летом','☀️','We go hiking in summer.','Летом мы ходим в походы.','в начале или в конце'),
+   I('all the time','всё время','♾️','He plays video games all the time.','Он играет в видеоигры всё время.','в конце')
+  ],
+  usage:[
+   ['She often plays chess. / He is never late.','always, usually, often, sometimes, rarely, never — перед основным глаголом, но после to be.'],
+   ['I go swimming twice a week.','once / twice / three times a … — в конце предложения.'],
+   ['How often do you go swimming? — Twice a week.','How often …? — Как часто …?'],
+   ['I never go fishing. (не «I don\'t never»)','never уже содержит отрицание: don\'t не нужно.']],
+  warn:['В английском предложении только <b>одно отрицание</b>: <b>✗ I don\'t never play</b>, <b>✓ I never play</b>.','<b>once / twice</b> — раз / два раза, дальше — <b>three times</b>, <b>four times</b>.','<b>on Saturdays</b> (по субботам) и <b>on Saturday</b> (в эту субботу) — разные!']},
+
+ {id:'opinion',t:'Мнения: прилагательные',e:'🌟',c:'#d6336c',quiz:false,
+  intro:'Эти слова отвечают на вопрос <b>Why?</b>. Используй их после <b>because it is …</b>.',
+  items:[
+   I('fun','весёлый, интересный','😄','Skating is fun.','Кататься на коньках весело.','👍'),
+   I('exciting','захватывающий','🎢','Snowboarding is exciting.','Сноуборд — это захватывающе.','👍'),
+   I('relaxing','расслабляющий','🛀','Reading is relaxing.','Чтение расслабляет.','👍'),
+   I('creative','творческий','🎨','Drawing is creative.','Рисование — творческое занятие.','👍'),
+   I('healthy','полезный для здоровья','🥦','Swimming is healthy.','Плавание полезно для здоровья.','👍'),
+   I('interesting','интересный','🧐','Coding is interesting.','Программирование интересно.','👍'),
+   I('amazing','потрясающий','🤩','The concert was amazing.','Концерт был потрясающий.','👍'),
+   I('great','отличный','👏','Football is a great game.','Футбол — отличная игра.','👍'),
+   I('easy','лёгкий','👍','Origami is easy.','Оригами делать легко.','👍'),
+   I('popular','популярный','🌟','Chess is popular in our school.','Шахматы популярны в нашей школе.','👍'),
+   I('useful','полезный','🛠️','Learning languages is useful.','Учить языки полезно.','👍'),
+   I('safe','безопасный','🛡️','Cycling in the park is safe.','Кататься на велосипеде в парке безопасно.','👍'),
+   I('boring','скучный','😴','Fishing is boring for me.','Рыбалка для меня скучна.','👎'),
+   I('tiring','утомительный','🥵','Running is tiring.','Бегать утомительно.','👎'),
+   I('dangerous','опасный','⚠️','Climbing can be dangerous.','Скалолазание может быть опасным.','👎'),
+   I('difficult','трудный','😓','The violin is difficult.','Играть на скрипке трудно.','👎'),
+   I('expensive','дорогой','💰','Skiing is expensive.','Лыжи — дорогое удовольствие.','👎'),
+   I('cheap','дешёвый','🏷️','Reading is cheap.','Читать — дёшево.','👍'),
+   I('silly','глупый','🤪','I think this game is silly.','Я думаю, эта игра глупая.','👎'),
+   I('terrible','ужасный','👎','The weather is terrible.','Погода ужасная.','👎'),
+   I('awesome','классный (разг.)','🔥','Our team is awesome!','Наша команда классная!','👍'),
+   I('calm','спокойный','😌','Gardening is calm and quiet.','Садоводство спокойное и тихое.','👍')
+  ],
+  usage:[
+   ['I love swimming because it is healthy.','Любимое занятие + because + it is + прилагательное.'],
+   ['I hate running because it is tiring.','Нелюбимое занятие + because it is + негативное слово.'],
+   ['Dancing makes me happy.','make + me + прилагательное: «делает меня …»'],
+   ['It\'s fun! It\'s not boring!','Короткие реакции.']],
+  warn:['После <b>because</b> нужно целое предложение: <b>because it is fun</b> (не «because fun»).','<b>interesting</b> (интересный) и <b>interested</b> (заинтересованный) — разные слова: <i>I\'m interested in coding.</i>','<b>cheap</b> — дёшево (нейтрально), а не «дешёвое по качеству».']},
+
+ {id:'phrases',t:'Фразы для разговора',e:'💬',c:'#1971c2',quiz:false,
+  intro:'Вопросы, ответы и реакции, которые нужны в разговоре о хобби.',
+  items:[],
+  groups:[
+   {h:'🗣️ Спрашиваем',cls:'q',list:[
+    ['What do you do in your free time?','Что ты делаешь в свободное время?'],['What are your hobbies?','Какие у тебя хобби?'],['What do you like doing at the weekend?','Что ты любишь делать на выходных?'],
+    ['How often do you play football?','Как часто ты играешь в футбол?'],['Who do you go swimming with?','С кем ты ходишь плавать?'],['Why do you like it?','Почему тебе это нравится?'],
+    ['What are you good at?','В чём ты хорош?'],['What would you like to try?','Что бы ты хотел попробовать?'],['Do you like playing video games?','Ты любишь играть в видеоигры?'],['Do you want to join us?','Хочешь присоединиться к нам?']]},
+   {h:'💬 Отвечаем',cls:'a',list:[
+    ['I love dancing and singing.','Я обожаю танцевать и петь.'],['My hobbies are drawing and cycling.','Мои хобби — рисование и велосипед.'],['I play football twice a week.','Я играю в футбол два раза в неделю.'],
+    ['I go swimming with my brother.','Я хожу плавать с братом.'],['Because it is fun and healthy.','Потому что это весело и полезно.'],['I\'m good at chess, but I\'m bad at tennis.','Я хорошо играю в шахматы, но плохо в теннис.'],
+    ['I\'d like to try horse riding.','Я бы хотел попробовать верховую езду.'],['Yes, I do. / No, I don\'t.','Да. / Нет.'],['I don\'t mind cooking, but I hate washing up.','Я не против готовить, но терпеть не могу мыть посуду.'],['I can\'t stand waiting!','Терпеть не могу ждать!']]},
+   {h:'🎉 Реагируем и приглашаем',cls:'r',list:[
+    ['Me too!','Я тоже! (согласен с утверждением)'],['Me neither.','Я тоже нет. (согласен с отрицанием)'],['Really? I don\'t!','Правда? А я нет!'],['That sounds fun!','Звучит весело!'],
+    ['Would you like to come with us?','Хочешь пойти с нами?'],['Sure! / Great idea!','Конечно! / Отличная идея!'],['Sorry, I can\'t. I have a guitar lesson.','Извини, не могу. У меня урок гитары.'],['Let\'s go skating!','Пойдём кататься на коньках!'],['Why don\'t we play tennis?','Почему бы нам не поиграть в теннис?'],['Can you teach me?','Ты можешь меня научить?']]}
+  ],
+  usage:[['Me too / Me neither','Me too — согласен с «I like»; Me neither — согласен с «I don\'t like».'],['Would you like to …? / Let\'s …','Приглашение и предложение.']],
+  warn:['После <b>would like</b> — <b>to + глагол</b>: <i>I\'d like to try</i>. После <b>like</b> — <b>-ing</b>: <i>I like trying</i>.','<b>Me too</b> и <b>Me neither</b> нельзя перепутать: <i>I love it. — Me too. / I don\'t like it. — Me neither.</i>']}
+];
+
+function tagHtml(it){
+  if(!it.tag) return '';
+  const k=it.tag.split(' ')[0];
+  const cls=(k==='play'||k==='do'||k==='go')?k:'';
+  return `<span class="tg ${cls}">${it.tag}</span>`;
+}
+function renderVocab(){
+  let total=0;
+  SEC.forEach((s,k)=>{
+    const n=s.groups?s.groups.reduce((a,g)=>a+g.list.length,0):s.items.length; total+=n;
+    const pill=document.createElement('div'); pill.className='sub'+(k===0?' on':''); pill.style.setProperty('--c',s.c);
+    pill.innerHTML=`${s.e} ${s.t} <small>${n}</small>`; pill.onclick=()=>showVS(k); $('subtabs').appendChild(pill);
+    const sec=document.createElement('div'); sec.className='vsec'+(k===0?' on':''); sec.style.setProperty('--c',s.c); sec.style.setProperty('--acc',s.c);
+    let h=`<div class="card"><h2>${s.e} ${s.t}</h2><p>${s.intro}</p><p class="muted">${n} ${s.groups?'фраз':'слов и выражений'}</p>${s.extra||''}</div>`;
+    if(s.groups){
+      h+=`<div class="card">`+s.groups.map(g=>`<div class="who">${g.h}</div>`+g.list.map(b=>`<div class="bub ${g.cls}"><button class="say" data-say="${b[0].replace(/"/g,'&quot;')}">🔊</button><div><b>${b[0]}</b><small>${b[1]}</small></div></div>`).join('')).join('')+`</div>`;
+    } else {
+      h+=`<div class="wgrid">`+s.items.map(it=>`<div class="wc" style="--c:${s.c}"><div class="we">${it.e}</div><div><div class="wt"><b>${it.w}</b>${tagHtml(it)}<button class="say" data-say="${it.w.replace(/"/g,'&quot;')}">🔊</button></div><div class="wr">${it.ru}</div><div class="wx">${it.ex}<i>${it.exru}</i></div></div></div>`).join('')+`</div>`;
+    }
+    h+=`<div class="usage"><h4>🧩 Как использовать</h4><ul>`+s.usage.map(u=>`<li><b>${u[0]}</b><span>${u[1]}</span></li>`).join('')+`</ul></div>`;
+    h+=`<div class="warn"><h4>⚠️ Осторожно, ловушки</h4><ul>`+s.warn.map(w=>`<li>${w}</li>`).join('')+`</ul></div>`;
+    sec.innerHTML=h; $('vbody').appendChild(sec);
+  });
+  $('wcount').textContent=total; return total;
+}
+function showVS(k){
+  document.querySelectorAll('.vsec').forEach((el,i)=>el.classList.toggle('on',i===k));
+  document.querySelectorAll('.sub').forEach((el,i)=>el.classList.toggle('on',i===k));
+}
+renderVocab();
+
+[['📚','Словарь','Слова, фразы, примеры и 🔊. 9 разделов',1,'#e8590c'],['🧱','Грамматика','like / love / hate / don\'t mind + -ing, конструктор предложений',2,'#7048e8'],
+ ['🎮','Тренировка','Восемь разных заданий по теме',3,'#2b8a3e'],['📋','Опрос класса','Опрашиваем, составляем отчёт, говорим и пишем',4,'#1971c2'],['🔁','Тренажёр ∞','Бесконечные вопросы с серией без ошибок',5,'#d6336c']].forEach((s,k)=>{
+  const d=document.createElement('div'); d.className='step'; d.style.setProperty('--c',s[4]); d.onclick=()=>goTo(s[3]);
+  d.innerHTML=`<div class="n">${k+1}</div><b>${s[0]} ${s[1]}</b><span>${s[2]}</span>`; $('steps').appendChild(d);
+});
+
+/* ================= quiz builder ================= */
+function buildQuiz(id,items,o={}){
+  const box=$(id); box.innerHTML=''; let ok=0,done=0; const total=items.length;
+  const score=document.createElement('div'); score.className='mini-score';
+  const upd=()=>{score.textContent=`Верно: ${ok} из ${total}`+(done===total?' — задание пройдено 🎉':'');};
+  items.forEach((it,idx)=>{
+    const q=document.createElement('div'); q.className='quiz-q';
+    const qt=document.createElement('div'); qt.className='qtext'; qt.innerHTML=(idx+1)+'. '+it.q;
+    const ob=document.createElement('div'); ob.className='opts'; const fb=document.createElement('div'); fb.className='fb';
+    const correct=it.opts[it.a]; const opts=o.noShuffle?it.opts.slice():shuffle(it.opts);
+    opts.forEach(op=>{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=op;
+      b.onclick=()=>{
+        ob.querySelectorAll('.opt').forEach(x=>x.disabled=true); done++;
+        if(op===correct){b.classList.add('ok'); ok++; fb.className='fb show ok'; fb.textContent='✅ Верно! '+it.why;}
+        else{b.classList.add('bad'); ob.querySelectorAll('.opt').forEach(x=>{if(x.textContent===correct) x.classList.add('ok');}); fb.className='fb show bad'; fb.textContent='❌ Не совсем. '+it.why;}
+        upd();
+      };
+      ob.appendChild(b);
+    });
+    q.append(qt,ob,fb); box.appendChild(q);
+  });
+  box.appendChild(score); upd();
+}
+function simpleQ(id,items){buildQuiz(id,items.map(x=>({q:x[0],opts:x[1],a:0,why:x[2]})));}
+
+/* ================= DATA for generators ================= */
+const ACT=[
+ {p:'swimming',b:'swim',e:'🏊'},{p:'drawing pictures',b:'draw pictures',e:'✏️'},{p:'painting',b:'paint',e:'🎨'},{p:'playing football',b:'play football',e:'⚽'},
+ {p:'playing basketball',b:'play basketball',e:'🏀'},{p:'playing tennis',b:'play tennis',e:'🎾'},{p:'playing the guitar',b:'play the guitar',e:'🎸'},{p:'playing the piano',b:'play the piano',e:'🎹'},
+ {p:'playing video games',b:'play video games',e:'🎮'},{p:'playing chess',b:'play chess',e:'♟️'},{p:'reading books',b:'read books',e:'📖'},{p:'dancing',b:'dance',e:'💃'},
+ {p:'singing',b:'sing',e:'🎤'},{p:'cooking',b:'cook',e:'🍳'},{p:'baking cakes',b:'bake cakes',e:'🧁'},{p:'riding a bike',b:'ride a bike',e:'🚴'},
+ {p:'watching films',b:'watch films',e:'🍿'},{p:'listening to music',b:'listen to music',e:'🎧'},{p:'taking photos',b:'take photos',e:'📷'},{p:'collecting stamps',b:'collect stamps',e:'✉️'},
+ {p:'going fishing',b:'go fishing',e:'🎣'},{p:'skateboarding',b:'skateboard',e:'🛹'},{p:'skating',b:'skate',e:'⛸️'},{p:'skiing',b:'ski',e:'⛷️'},
+ {p:'hiking',b:'hike',e:'🥾'},{p:'doing yoga',b:'do yoga',e:'🧘'},{p:'gardening',b:'garden',e:'🌱'},{p:'writing stories',b:'write stories',e:'✍️'},
+ {p:'knitting',b:'knit',e:'🧶'},{p:'doing puzzles',b:'do puzzles',e:'🧩'},{p:'walking the dog',b:'walk the dog',e:'🐕'},{p:'riding a horse',b:'ride a horse',e:'🏇'},
+ {p:'surfing the Internet',b:'surf the Internet',e:'🌐'},{p:'making videos',b:'make videos',e:'🎬'},{p:'playing volleyball',b:'play volleyball',e:'🏐'},{p:'going camping',b:'go camping',e:'⛺'}
+];
+const SUBJ=[{s:'I',sg:0},{s:'You',sg:0},{s:'We',sg:0},{s:'They',sg:0},{s:'He',sg:1},{s:'She',sg:1},{s:'Anna',sg:1},{s:'Tom',sg:1},{s:'My brother',sg:1},{s:'My friends',sg:0},{s:'Our teacher',sg:1},{s:'The children',sg:0}];
+// feeling scale: k -> emoji, conj(sg)
+const FEEL=[
+ {k:'love',e:'😍',f:sg=>sg?'loves':'love'},
+ {k:'like',e:'🙂',f:sg=>sg?'likes':'like'},
+ {k:'mind',e:'😐',f:sg=>sg?"doesn't mind":"don't mind"},
+ {k:'dis',e:'🙁',f:sg=>sg?"doesn't like":"don't like"},
+ {k:'hate',e:'😡',f:sg=>sg?'hates':'hate'}
+];
+const PDG=[]; SEC.filter(s=>['creative','sport','home'].includes(s.id)).forEach(s=>s.items.forEach(it=>{const m=it.tag.match(/^(play|do|go) (.+)$/); if(m) PDG.push({col:m[1],noun:m[2],e:it.e,w:it.w});}));
+const POOL=[]; SEC.filter(s=>s.quiz).forEach(s=>s.items.forEach(it=>POOL.push(Object.assign({sec:s.id},it))));
+const seenE=new Set(); const EPOOL=POOL.filter(it=>{if(!it.e||it.x||seenE.has(it.e)||!['creative','sport','home','time','places'].includes(it.sec)) return false; seenE.add(it.e); return true;});
+const lc=s=>(s==='I'||s==='Anna'||s==='Tom')?s:s.charAt(0).toLowerCase()+s.slice(1);
+
+/* ================= grammar: builder ================= */
+const BV=[{k:'love',t:'love',modes:['+','−','?']},{k:'like',t:'like',modes:['+','−','?']},{k:'enjoy',t:'enjoy',modes:['+','−','?']},{k:'hate',t:'hate',modes:['+','−','?']},{k:'mind',t:"don't mind",modes:['+','?']},{k:'cant',t:"can't stand",modes:['+']}];
+const BS=['I','You','He','She','We','They'];
+let bS='She',bV='love',bM='+';
+BS.forEach(s=>{const b=document.createElement('button'); b.className='btn sm ghost'; b.textContent=s; b.dataset.k=s; b.onclick=()=>{bS=s; bRender();}; $('bSubj').appendChild(b);});
+BV.forEach(v=>{const b=document.createElement('button'); b.className='btn sm ghost'; b.textContent=v.t; b.dataset.k=v.k; b.onclick=()=>{bV=v.k; if(!BV.find(x=>x.k===bV).modes.includes(bM)) bM='+'; bRender();}; $('bVerb').appendChild(b);});
+['+','−','?'].forEach(m=>{const b=document.createElement('button'); b.className='btn sm ghost'; b.textContent=m==='+'?'+ утверждение':m==='−'?'− отрицание':'? вопрос'; b.dataset.k=m; b.onclick=()=>{bM=m; bRender();}; $('bMode').appendChild(b);});
+ACT.forEach((a,i)=>{const o=document.createElement('option'); o.value=i; o.textContent=a.e+' '+a.p; $('bAct').appendChild(o);});
+$('bAct').value=3; $('bAct').onchange=()=>bRender();
+function bRender(){
+  const sg=['He','She'].includes(bS); const v=BV.find(x=>x.k===bV); const p=ACT[+$('bAct').value].p; let tok=[],rule='';
+  const subj=bM==='?'?lc(bS):bS;
+  if(['love','like','enjoy','hate'].includes(bV)){
+    if(bM==='+'){tok=[['s',bS],['a',''],['v',bV+(sg?'s':'')],['g',p]]; rule='Подлежащее + глагол'+(sg?' с окончанием -s':'')+' + -ing.';}
+    else if(bM==='−'){tok=[['s',bS],['a',sg?"doesn't":"don't"],['v',bV],['g',p]]; rule='Подлежащее + '+(sg?"doesn't":"don't")+' + глагол (без -s) + -ing.';}
+    else{tok=[['a',sg?'Does':'Do'],['s',subj],['v',bV],['g',p]]; rule=(sg?'Does':'Do')+' + подлежащее + глагол + -ing?';}
+  } else if(bV==='mind'){
+    if(bM==='+'){tok=[['s',bS],['a',sg?"doesn't":"don't"],['v','mind'],['g',p]]; rule='don\'t / doesn\'t mind = «не против», дальше -ing.';}
+    else{tok=[['a',sg?'Does':'Do'],['s',subj],['v','mind'],['g',p]]; rule='Do you mind …? — «Вы не против …?»';}
+  } else {tok=[['s',bS],['a',"can't"],['v','stand'],['g',p]]; rule="can't stand — одна форма для всех лиц, дальше -ing.";}
+  const parts=tok.filter(t=>t[1]!=='').map(t=>t[1]); let sent=parts.join(' ')+(bM==='?'?'?':'.');
+  $('bForm').innerHTML=tok.filter(t=>t[1]!=='').map(t=>`<span class="tk ${t[0]}">${t[1]}</span>`).join('');
+  $('bSent').textContent=sent; $('bRule').textContent=rule; $('bSay').dataset.say=sent;
+  document.querySelectorAll('#bSubj .btn').forEach(b=>b.classList.toggle('ghost',b.dataset.k!==bS));
+  document.querySelectorAll('#bVerb .btn').forEach(b=>b.classList.toggle('ghost',b.dataset.k!==bV));
+  document.querySelectorAll('#bMode .btn').forEach(b=>{b.classList.toggle('ghost',b.dataset.k!==bM); b.classList.toggle('off',!v.modes.includes(b.dataset.k));});
+}
+bRender();
+
+/* mini checks */
+simpleQ('g1',[
+ ['I enjoy ___ .',['swimming','swim','to swimming'],'После enjoy всегда -ing.'],
+ ['She is good at ___ .',['drawing','draw','to draw'],'После предлога at — -ing.'],
+ ['He can\'t stand ___ for the bus.',['waiting','wait','waits'],'can\'t stand + -ing.'],
+ ['They don\'t mind ___ in the rain.',['playing','play','to play'],'don\'t mind + -ing.']
+]);
+simpleQ('g2',[
+ ['swim → ?',['swimming','swiming','swimeing'],'Одна гласная + одна согласная: удваиваем m.'],
+ ['dance → ?',['dancing','danceing','dancting'],'Немая -e пропадает.'],
+ ['ski → ?',['skiing','skying','skiiing'],'ski + ing = skiing.'],
+ ['run → ?',['running','runing','runeing'],'Удваиваем n.']
+]);
+simpleQ('g3',[
+ ['We ___ swimming on Sundays.',['go','play','do'],'swimming — это занятие на -ing: go swimming.'],
+ ['My brother ___ karate.',['does','plays','goes'],'karate — do karate (3-е лицо: does).'],
+ ['She ___ the violin.',['plays','does','goes'],'Музыкальный инструмент: play the violin.'],
+ ['They ___ chess after school.',['play','do','go'],'Игры: play chess.']
+]);
+simpleQ('g4',[
+ ['She ___ plays chess.',['often','plays often','often is'],'often стоит перед основным глаголом: She often plays chess.'],
+ ['He ___ late.',['is never','never is','does never'],'С to be наречие стоит после: He is never late.'],
+ ['I go swimming ___ .',['twice a week','twice week','two times week'],'twice a week — два раза в неделю.'],
+ ['My sister ___ football.',['plays','play','playing'],'he / she / it + -s: plays.']
+]);
+simpleQ('g5',[
+ ['I love skating because it is ___ .',['fun','boring','dangerous'],'Положительное чувство — положительное слово.'],
+ ['He hates running because it is ___ .',['tiring','amazing','relaxing'],'Негативное чувство — негативная причина.']
+]);
+simpleQ('g6',[
+ ['I love painting. — ___',['Me too!','Me neither.','I do not!'],'Согласие с «I love» — Me too!'],
+ ['I don\'t like cooking. — ___',['Me neither.','Me too.','So am I.'],'Согласие с отрицанием — Me neither.']
+]);
+simpleQ('g7',[
+ ['Would you like ___ to the cinema?',['to go','going','go'],'would like + to + глагол.'],
+ ['I like ___ in the park. (вообще)',['running','to running','run'],'like + -ing.']
+]);
+
+/* ================= TRAINING ================= */
+const nm=s=>s;
+function spellING(b){
+  if(b==='ski') return 'skiing';
+  if(/ie$/.test(b)) return b.slice(0,-2)+'ying';
+  if(/e$/.test(b)&&!/ee$/.test(b)) return b.slice(0,-1)+'ing';
+  if(/^[^aeiou]*[aeiou][^aeiouwxy]$/.test(b)&&b.length<=4) return b+b.slice(-1)+'ing';
+  return b+'ing';
+}
+const SP=['play','read','draw','paint','fish','sing','dance','bake','ride','skate','write','make','hike','swim','run','shop','get','chat','jog','cut','sit','ski','cycle','climb','surf','plan','walk','cook'];
+function wrongING(b,good){
+  const w=new Set([b+'ing',b+b.slice(-1)+'ing',b.replace(/e$/,'')+'ing',b+'eing',b.replace(/y$/,'i')+'ing']);
+  w.delete(good); return shuffle([...w]).slice(0,2);
+}
+function sentFor(subj,fk,act){ const f=FEEL.find(x=>x.k===fk); return `${subj.s} ${f.f(subj.sg)} ${act.p}.`; }
+
+function buildTraining(){
+  /* 1 picture */
+  buildQuiz('e1',shuffle(EPOOL).slice(0,10).map(it=>{
+    const same=shuffle(EPOOL.filter(x=>x.w!==it.w&&x.sec===it.sec)), rest=shuffle(EPOOL.filter(x=>x.w!==it.w&&x.sec!==it.sec));
+    const opts=[it.w].concat(same.concat(rest).slice(0,3).map(x=>x.w));
+    return {q:`<span class="bigemo">${it.e}</span> Что это?`,opts,a:0,why:`${it.w} — ${it.ru}. ${it.ex}`};
+  }));
+  /* 2 play/do/go sorter */
+  const chips=[]; ['play','do','go'].forEach(c=>shuffle(PDG.filter(x=>x.col===c)).slice(0,4).forEach(x=>chips.push({w:x.noun,k:c})));
+  buildSorter('e2',[{k:'play',label:'🎾 play'},{k:'do',label:'🥋 do'},{k:'go',label:'🚶 go (+ -ing)'}],chips);
+  /* 3 feeling */
+  buildQuiz('e3',Array.from({length:8},()=>{
+    const subj=pick(SUBJ), act=pick(ACT), f=pick(FEEL);
+    const opts=[f].concat(shuffle(FEEL.filter(x=>x.k!==f.k)).slice(0,2)).map(x=>x.f(subj.sg));
+    return {q:`<span class="bigemo">${f.e}</span> ${subj.s} ___ ${act.p}.`,opts,a:0,why:`${f.e} = ${f.f(subj.sg)}. ${subj.s} ${f.f(subj.sg)} ${act.p}.`};
+  }));
+  /* 4 correct sentence */
+  buildQuiz('e4',Array.from({length:8},()=>{
+    const subj=pick(SUBJ), act=pick(ACT), v=pick(['love','like','enjoy','hate']);
+    const good=`${subj.s} ${v}${subj.sg?'s':''} ${act.p}.`;
+    const w1=`${subj.s} ${v}${subj.sg?'s':''} ${act.b}.`;
+    const w2=subj.sg?`${subj.s} ${v} ${act.p}.`:`${subj.s} ${v}s ${act.p}.`;
+    const w3=`${subj.s} ${v}${subj.sg?'s':''} to ${act.p}.`;
+    const bad=shuffle([w1,w2,w3]).slice(0,2);
+    return {q:'Выбери правильное предложение:',opts:[good].concat(bad),a:0,why:`Правильно: ${good} (${subj.sg?'he / she / it + -s, ':''}после ${v} — глагол с -ing).`};
+  }));
+  /* 5 scramble */
+  buildScramble('e5',shuffle(SCR).slice(0,4));
+  /* 6 -ing typing */
+  buildType('e6',shuffle(SP).slice(0,8).map(b=>({e:'',ru:b,acc:[spellING(b)],w:spellING(b),ph:b+' → ?'})));
+  /* 7 dialogues */
+  buildQuiz('e7',shuffle(DLG).slice(0,6).map(d=>({q:d.q,opts:d.o,a:0,why:d.why})));
+  /* 8 reading */
+  buildReading('e8');
+}
+const SCR=[
+ 'I love playing the guitar.','She doesn\'t like cooking.','Do you enjoy swimming?','He hates waiting for the bus.','We go skiing in winter.',
+ 'My brother is good at drawing.','They don\'t mind walking to school.','How often do you play football?','I would like to try horse riding.','She often listens to music after school.',
+ 'What do you like doing at the weekend?','Does he like playing chess?'
+];
+const DLG=[
+ {q:'What do you do in your free time?',o:['I like playing football.','I like play football.','I playing football.'],why:'I like + -ing: playing football.'},
+ {q:'Do you like dancing?',o:['Yes, I do.','Yes, I like.','Yes, I am.'],why:'На вопрос с Do отвечаем Yes, I do.'},
+ {q:'Does she like swimming? — No, ___ .',o:['she doesn\'t','she don\'t','she isn\'t'],why:'Does → she doesn\'t.'},
+ {q:'I love skating. — ___',o:['Me too!','Me neither.','No, I like.'],why:'Согласие с «I love» — Me too!'},
+ {q:'I don\'t like cooking. — ___',o:['Me neither.','Me too.','So do I.'],why:'Согласие с отрицанием — Me neither.'},
+ {q:'How often do you go swimming?',o:['Twice a week.','Two weeks.','Always swimming.'],why:'How often? — twice a week.'},
+ {q:'Why do you like painting?',o:['Because it is creative.','Because creative.','Because I am creative it.'],why:'because + it is + прилагательное.'},
+ {q:'Would you like to come to the cinema? — ___',o:['Sure! Great idea!','Yes, I like.','I am coming not.'],why:'Приглашение принимаем: Sure! Great idea!'},
+ {q:'What are you good at?',o:['I\'m good at singing.','I\'m good singing.','I good at sing.'],why:'be good at + -ing.'},
+ {q:'Do you mind helping me?',o:['No, I don\'t mind.','Yes, I help.','No, I don\'t help.'],why:'Do you mind …? — No, I don\'t mind = «Не против».'}
+];
+const READ=[
+ {n:'Mia',t:'Hi! I\'m Mia. I\'m eleven. I love drawing and painting. I draw every day after school. I also like playing the guitar, but I\'m not very good at it. I don\'t mind doing my homework, but I hate cleaning my room. At the weekend I go swimming with my friends.'},
+ {n:'Tom',t:'My name\'s Tom. I\'m twelve. I\'m crazy about football. I play football three times a week with my team. I enjoy watching films too, but I can\'t stand reading. My sister says I\'m lazy, but I don\'t mind! My favourite day is Saturday because we have a match.'},
+ {n:'Alex',t:'I\'m Alex. I\'m ten. I like cooking and baking. I bake cakes with my grandma every Sunday. I\'m interested in collecting stamps. I don\'t like skating because it\'s dangerous. I\'d like to go camping this summer.'}
+];
+const RQ=[
+ {q:'Who loves drawing and painting?',o:['Mia','Tom','Alex'],a:0,why:'Mia: «I love drawing and painting».'},
+ {q:'Who can\'t stand reading?',o:['Tom','Mia','Alex'],a:0,why:'Tom: «I can\'t stand reading».'},
+ {q:'Who bakes cakes with grandma?',o:['Alex','Mia','Tom'],a:0,why:'Alex: «I bake cakes with my grandma every Sunday».'},
+ {q:'What does Mia hate doing?',o:['cleaning her room','doing homework','swimming'],a:0,why:'Mia: «I hate cleaning my room».'},
+ {q:'How often does Tom play football?',o:['three times a week','every day','once a month'],a:0,why:'Tom: «three times a week».'},
+ {q:'Why doesn\'t Alex like skating?',o:['Because it\'s dangerous.','Because it\'s boring.','Because it\'s expensive.'],a:0,why:'Alex: «because it\'s dangerous».'},
+ {q:'Mia is very good at playing the guitar. (True / False)',o:['False','True'],a:0,why:'Mia: «I\'m not very good at it».'},
+ {q:'Alex would like to go camping this summer. (True / False)',o:['True','False'],a:0,why:'Alex: «I\'d like to go camping this summer».'}
+];
+function buildReading(id){
+  const box=$(id); box.innerHTML='';
+  READ.forEach(r=>{const d=document.createElement('div'); d.className='story'; d.innerHTML=`<b>${r.n}</b> <button class="say" data-say="${r.t.replace(/"/g,'&quot;')}">🔊</button><br>${r.t}`; box.appendChild(d);});
+  const q=document.createElement('div'); q.id='e8q'; box.appendChild(q); buildQuiz('e8q',shuffle(RQ).slice(0,6).map(x=>({q:x.q,opts:x.o,a:x.a,why:x.why})));
+}
+function buildType(id,items){
+  const box=$(id); box.innerHTML='';
+  items.forEach(it=>{
+    const r=document.createElement('div'); r.className='typerow'; r.innerHTML=`<div class="r">${it.ph||it.ru}</div>`;
+    const inp=document.createElement('input'); inp.placeholder='ответ'; inp.autocomplete='off'; inp.spellcheck=false; r.appendChild(inp);
+    const fb=document.createElement('span'); fb.className='muted'; r.appendChild(fb); r._it=it; r._inp=inp; r._fb=fb; box.appendChild(r);
+  });
+  const sc=document.createElement('div'); sc.className='mini-score'; const b=document.createElement('button'); b.className='btn sm'; b.textContent='Проверить';
+  b.onclick=()=>{ let ok=0; box.querySelectorAll('.typerow').forEach(r=>{ const v=r._inp.value.trim().toLowerCase(); const good=r._it.acc.includes(v); r._inp.className=good?'ok':'bad'; r._fb.textContent=good?'✅':'→ '+r._it.w; if(good) ok++; }); sc.textContent=`Верно: ${ok} из ${items.length}`+(ok===items.length?' 🎉':''); };
+  box.append(b,sc);
+}
+function buildSorter(id,bins,chips){
+  const box=$(id); box.innerHTML=''; let sel=null;
+  const pool=document.createElement('div'); pool.className='pool'; const wrap=document.createElement('div'); wrap.className='bins'; const fb=document.createElement('div'); fb.className='fb';
+  bins.forEach(b=>{const d=document.createElement('div'); d.className='bin'; d.dataset.k=b.k; d.innerHTML=`<h4>${b.label}</h4><div class="bin-body"></div>`;
+    d.onclick=()=>{if(!sel) return; d.querySelector('.bin-body').appendChild(sel); sel.classList.remove('sel'); sel=null;}; wrap.appendChild(d);});
+  shuffle(chips).forEach(c=>{const ch=document.createElement('div'); ch.className='chip'; ch.textContent=c.w; ch.dataset.k=c.k;
+    ch.onclick=e=>{e.stopPropagation(); if(ch.parentElement.classList.contains('bin-body')){ch.className='chip'; pool.appendChild(ch); return;} if(sel&&sel!==ch) sel.classList.remove('sel'); ch.classList.toggle('sel'); sel=ch.classList.contains('sel')?ch:null;}; pool.appendChild(ch);});
+  const row=document.createElement('div'); row.className='row'; row.style.marginTop='12px';
+  const bc=document.createElement('button'); bc.className='btn sm'; bc.textContent='Проверить';
+  bc.onclick=()=>{ if(pool.children.length){fb.className='fb show bad'; fb.textContent='Сначала разложи все слова: осталось '+pool.children.length+'.'; return;}
+    let ok=0,total=0; wrap.querySelectorAll('.bin').forEach(bn=>bn.querySelectorAll('.chip').forEach(c=>{total++; if(c.dataset.k===bn.dataset.k){c.className='chip ok'; ok++;} else c.className='chip bad';}));
+    fb.className='fb show '+(ok===total?'ok':'bad'); fb.textContent=ok===total?'🎉 Все слова на своих местах!':`Верно: ${ok} из ${total}. Красные слова верни (нажми на них) и разложи по-другому.`; };
+  row.appendChild(bc); box.append(pool,wrap,row,fb);
+}
+function buildScramble(id,sents){
+  const box=$(id); box.innerHTML=''; let ok=0,done=0; const sc=document.createElement('div'); sc.className='mini-score';
+  const upd=()=>{sc.textContent=`Верно: ${ok} из ${sents.length}`+(done===sents.length?' — задание пройдено 🎉':'');};
+  sents.forEach(s=>{
+    const wrap=document.createElement('div'); wrap.className='quiz-q';
+    const words=s.replace(/[.?]$/,'').split(' '); const endc=s.slice(-1);
+    const line=document.createElement('div'); line.className='line'; const pool=document.createElement('div'); pool.className='pool'; const fb=document.createElement('div'); fb.className='fb';
+    shuffle(words.map((w,i)=>({w,i}))).forEach(o=>{const c=document.createElement('div'); c.className='chip'; c.textContent=o.w;
+      c.onclick=()=>{ if(wrap.dataset.done) return; (c.parentElement===pool?line:pool).appendChild(c); }; pool.appendChild(c);});
+    const b=document.createElement('button'); b.className='btn sm'; b.textContent='Проверить';
+    b.onclick=()=>{ if(wrap.dataset.done) return; const got=[...line.children].map(c=>c.textContent).join(' ');
+      if(got.toLowerCase()===words.join(' ').toLowerCase()){wrap.dataset.done=1; done++; ok++; fb.className='fb show ok'; fb.textContent='✅ Верно! '+s; upd();}
+      else{fb.className='fb show bad'; fb.textContent='❌ Пока не так. Проверь порядок слов и попробуй ещё раз.';} };
+    const sh=document.createElement('button'); sh.className='btn sm ghost'; sh.textContent='Показать ответ';
+    sh.onclick=()=>{ if(wrap.dataset.done) return; wrap.dataset.done=1; done++; fb.className='fb show bad'; fb.textContent='Правильно: '+s; upd(); };
+    const r=document.createElement('div'); r.className='row'; r.append(b,sh);
+    wrap.append(line,pool,r,fb); box.appendChild(wrap);
+  });
+  box.appendChild(sc); upd();
+}
+
+/* ================= SURVEY ================= */
+const LV=[{k:0,e:'😍',t:'love'},{k:1,e:'🙂',t:'like'},{k:2,e:'😐',t:"don't mind"},{k:3,e:'🙁',t:"don't like"},{k:4,e:'😡',t:'hate'}];
+let SV=null;
+function newSurvey(){ SV={acts:shuffle(ACT).slice(0,6),c:Array.from({length:6},()=>[0,0,0,0,0])}; $('report').className='report'; renderSurvey(); }
+function renderSurvey(){
+  const box=$('survey'); box.innerHTML='';
+  SV.acts.forEach((a,r)=>{
+    const row=document.createElement('div'); row.className='srow';
+    row.innerHTML=`<div class="q">${a.e} Do you like ${a.p}?</div>`;
+    const cells=document.createElement('div'); cells.className='cells';
+    LV.forEach(l=>{ const c=document.createElement('div'); c.className='cell';
+      c.innerHTML=`<span class="em">${l.e}</span><small>${l.t}</small><b>${SV.c[r][l.k]}</b><button class="mn">−</button>`;
+      c.querySelector('.em').onclick=()=>{SV.c[r][l.k]++; c.querySelector('b').textContent=SV.c[r][l.k];};
+      c.querySelector('.mn').onclick=()=>{ if(SV.c[r][l.k]>0){SV.c[r][l.k]--; c.querySelector('b').textContent=SV.c[r][l.k];} };
+      cells.appendChild(c); });
+    row.appendChild(cells); box.appendChild(row);
+  });
+}
+function clauseFor(k,n,first,p){
+  const vb={0:n===1?'loves':'love',1:n===1?'likes':'like',2:n===1?"doesn't mind":"don't mind",3:n===1?"doesn't like":"don't like",4:n===1?'hates':'hate'}[k];
+  return `${numw(n)} ${n===1?'person':'people'} ${vb} ${first?p:'it'}`;
+}
+function makeReport(){
+  const n=Math.max(1,+$('svN').value||5); const lines=[`We asked ${numw(n)} ${n===1?'person':'people'} six questions about free time.`];
+  let best=null,worst=null,never=null;
+  SV.acts.forEach((a,r)=>{
+    const c=SV.c[r]; const sum=c.reduce((x,y)=>x+y,0); if(!sum) return;
+    const cl=[]; c.forEach((cnt,k)=>{ if(cnt>0) cl.push(clauseFor(k,cnt,cl.length===0,a.p)); });
+    let s=cl.length===1?cl[0]:cl.slice(0,-1).join(', ')+' and '+cl[cl.length-1];
+    lines.push(cap(s)+'.');
+    const pos=c[0]+c[1], neg=c[3]+c[4];
+    if(!best||pos>best.v) best={v:pos,p:a.p}; if(neg>0&&(!worst||neg>worst.v)) worst={v:neg,p:a.p}; if(c[4]===0&&!never) never=a.p;
+  });
+  if(lines.length===1) lines.push('We have no answers yet. Ask your friends first!');
+  else{ if(best&&best.v>0) lines.push(`The most popular activity is ${best.p}.`); if(worst) lines.push(`The least popular activity is ${worst.p}.`); if(never) lines.push(`Nobody hates ${never}.`); }
+  const txt=lines.join(' '); const rp=$('report'); rp.className='report show'; rp.innerHTML=lines.map(l=>`<div>${l}</div>`).join(''); $('repSay').dataset.say=txt;
+}
+$('repSay').onclick=()=>speak($('repSay').dataset.say||'');
+const ASK=[
+ ['What do you like doing in your free time?','Что ты любишь делать в свободное время?','Начни так: I like …ing …'],
+ ['What are your hobbies?','Какие у тебя хобби?','My hobbies are … and …'],
+ ['How often do you play or do your hobby?','Как часто ты занимаешься своим хобби?','I … once a week / every day.'],
+ ['Who do you do it with?','С кем ты этим занимаешься?','I … with my friends / my dad.'],
+ ['Why do you like it?','Почему тебе это нравится?','Because it is fun / relaxing.'],
+ ['What do you hate doing?','Что ты терпеть не можешь делать?','I hate … / I can\'t stand …'],
+ ['What don\'t you mind doing?','Что ты не против делать?','I don\'t mind …ing …'],
+ ['What are you good at?','В чём ты хорош?','I\'m good at …ing …'],
+ ['What are you bad at?','В чём ты плох?','I\'m bad at …ing …'],
+ ['What would you like to try?','Что бы ты хотел попробовать?','I\'d like to try …'],
+ ['Where do you go at the weekend?','Куда ты ходишь на выходных?','I go to …'],
+ ['Do you like playing video games?','Ты любишь играть в видеоигры?','Yes, I do. / No, I don\'t. I prefer …']
+];
+function randomAsk(){ const a=pick(ASK); $('askQ').textContent=a[0]; $('askRu').textContent=a[1]; $('askH').textContent=a[2]; $('askSay').dataset.say=a[0]; }
+
+const MODEL="Hi! My name is Kate and I'm eleven. In my free time I love drawing and painting. I usually draw after school, and I paint at the weekend. I also like playing the guitar because it is relaxing, but I'm not very good at it. On Saturdays I go swimming with my friends. It's great fun! I don't mind doing my homework, but I hate cleaning my room. I can't stand waiting for the bus! I'd like to learn the piano next year.";
+$('model').textContent=MODEL; $('msay').onclick=()=>speak(MODEL);
+const ADJW=['fun','boring','exciting','relaxing','creative','dangerous','difficult','easy','expensive','cheap','popular','healthy','interesting','useful','tiring','amazing','great','awesome','safe','silly','terrible','calm'];
+function checkWriting(){
+  const raw=$('wr').value; const t=raw.toLowerCase().replace(/[’`]/g,"'");
+  const sentences=t.split(/[.!?]+/).filter(x=>x.trim().split(/\s+/).filter(Boolean).length>=3).length;
+  const has=re=>re.test(t);
+  const ingAfter=(t.match(/\b(love|loves|like|likes|enjoy|enjoys|hate|hates|adore|adores|mind|stand|dislike|dislikes|good at|bad at|interested in|keen on|into|fond of|crazy about)\s+(\w+\s+)?\w+ing\b/g)||[]).length;
+  const adjs=ADJW.filter(a=>new RegExp('\\b'+a+'\\b').test(t));
+  const crit=[
+   ['Минимум 6 предложений',sentences>=6,`сейчас: ${sentences}`],
+   ['Есть то, что тебе нравится (love / like / enjoy / be keen on…)',has(/\b(love|loves|like|likes|enjoy|enjoys|adore|keen on|crazy about|fond of|into)\b/),''],
+   ['Есть то, что не нравится или безразлично (hate / don\'t like / can\'t stand / don\'t mind)',has(/\b(hate|hates|don't like|doesn't like|can't stand|don't mind|doesn't mind|dislike|not keen on)\b/),''],
+   ['Глагол + -ing минимум 2 раза (love drawing, hate cleaning…)',ingAfter>=2,`найдено: ${ingAfter}`],
+   ['Есть слова о частоте (always, often, once a week, on Saturdays…)',has(/\b(always|usually|often|sometimes|rarely|never|every day|every weekend|once a|twice a|three times|on saturdays|on sundays|at the weekend|after school)\b/),''],
+   ['Есть because (почему нравится)',has(/\bbecause\b/),''],
+   ['Есть play / do / go с занятием (go swimming, play chess…)',has(/\bgo(es)?\s+\w+ing\b|\bplay(s)?\s+(the\s+)?\w+|\bdo(es)?\s+(yoga|karate|judo|gymnastics|puzzles|origami|athletics|boxing)/),''],
+   ['Минимум 2 прилагательных-оценки (fun, relaxing, boring…)',adjs.length>=2,`найдено: ${adjs.length}`]
+  ];
+  const bonus=has(/\bi'd like to\b|\bi would like to\b/);
+  const done=crit.filter(c=>c[1]).length;
+  $('wlist').innerHTML=crit.map(c=>`<li class="${c[1]?'done':''}">${c[1]?'✅':'⬜'} <span>${c[0]} <small style="opacity:.7">${c[2]}</small></span></li>`).join('')+`<li class="${bonus?'done':''}">${bonus?'🌟':'⭐'} <span>Бонус: мечта (I'd like to …)</span></li>`;
+  $('wprog').style.width=(done/crit.length*100)+'%';
+  let msg='';
+  if(!raw.trim()) msg='Начни с: In my free time I …';
+  else if(!/[a-z]/.test(t)) msg='Пиши по-английски (латиницей) 🙂';
+  else if(done===crit.length) msg='🎉 Все пункты выполнены! Теперь сравни с образцом.';
+  else msg=`Выполнено ${done} из ${crit.length}. Посмотри на невыполненные пункты.`;
+  $('wmsg').textContent=msg;
+}
+$('wr').addEventListener('input',checkWriting); checkWriting(); newSurvey();
+
+/* ================= INFINITE ================= */
+function colSentence(x){ return pick([`Let's ___ ${x.noun}!`,`We often ___ ${x.noun} at the weekend.`]); }
+const POSADJ=['fun','exciting','relaxing','creative','healthy','amazing'], NEGADJ=['boring','tiring','dangerous','difficult','silly','terrible'];
+const FREQ=['always','usually','often','sometimes','rarely','never'];
+const SENT_PH=['plays chess','goes swimming','watches films','listens to music','does yoga','reads books','bakes cakes','rides a bike'];
+const GENS={
+ ing(){ const a=pick(ACT), v=pick(['enjoy','don\'t mind','can\'t stand','love','like','hate','be good at']);
+   const subj=pick(SUBJ.filter(x=>!x.sg));
+   const lead= v==='be good at' ? `${subj.s} ${subj.s==='I'?'am':'are'} good at` : (v==='enjoy'||v==='love'||v==='like'||v==='hate') ? `${subj.s} ${v}` : `${subj.s} ${v}`;
+   return {s:`${lead} ___ .`,opts:[a.p,a.b,'to '+a.p],ans:a.p,why:`После «${v}» ставим глагол с -ing: ${a.p}.`,tag:'ing'}; },
+ form(){ const mode=pick(['aff','neg','q']); const subj=pick(mode==='q'?SUBJ.filter(x=>x.s!=='I'):SUBJ), a=pick(ACT), v=pick(['love','like','enjoy','hate']);
+   if(mode==='aff'){ const good=v+(subj.sg?'s':''), bad=subj.sg?v:v+'s'; return {s:`${subj.s} ___ ${a.p}.`,opts:[good,bad,'is '+v],ans:good,why:`${subj.sg?'He / she / it + -s':'I / you / we / they без -s'}: ${subj.s} ${good} ${a.p}.`,tag:'ps'}; }
+   if(mode==='neg'){ const good=subj.sg?"doesn't":"don't", bad=subj.sg?"don't":"doesn't"; return {s:`${subj.s} ___ ${v} ${a.p}.`,opts:[good,bad,"isn't"],ans:good,why:`${subj.sg?'He / she / it':'I / you / we / they'} → ${good} + ${v} (без -s) + -ing.`,tag:'ps'}; }
+   const good=subj.sg?'Does':'Do', bad=subj.sg?'Do':'Does'; return {s:`___ ${lc(subj.s)} ${v} ${a.p}?`,opts:[good,bad,'Is'],ans:good,why:`${subj.sg?'He / she / it':'I / you / we / they'} → ${good} + подлежащее + ${v} + -ing?`,tag:'ps'}; },
+ col(){ const x=pick(PDG); const ans=x.col; return {s:colSentence(x),opts:['play','do','go'],ans,why:`${x.noun}: ${ans} ${x.noun}. ${ans==='go'?'Занятия на -ing — go.':ans==='play'?'Игры и инструменты — play.':'Единоборства, йога, гимнастика, пазлы — do.'}`,tag:'col'}; },
+ spell(){ const b=pick(SP), good=spellING(b); return {s:`${b} → ___`,opts:[good].concat(wrongING(b,good)),ans:good,why:`${b} → ${good}.`,tag:'word'}; },
+ word(){ const it=pick(EPOOL); const opts=[it.w].concat(shuffle(EPOOL.filter(x=>x.w!==it.w&&x.sec===it.sec)).slice(0,3).map(x=>x.w)); return {s:`${it.e} Что это?`,opts,ans:it.w,why:`${it.w} — ${it.ru}. ${it.ex}`,tag:'word',raw:true}; },
+ adv(){ const subj=pick(SUBJ.filter(x=>x.sg&&['He','She','Anna','Tom'].includes(x.s))), f=pick(FREQ), ph=pick(SENT_PH);
+   const [vb,...rest]=ph.split(' '); const good=`${subj.s} ${f} ${vb} ${rest.join(' ')}.`; const w1=`${subj.s} ${vb} ${f} ${rest.join(' ')}.`; const w2=`${subj.s} ${vb} ${rest.join(' ')} ${f}.`;
+   return {s:'Выбери верный порядок слов:',opts:[good,w1,w2],ans:good,why:`${f} стоит перед основным глаголом: ${good}`,tag:'ps',raw:true}; },
+ would(){ const a=pick(ACT); const subj=pick(['I','She','He','We','They']); const lead=subj==='I'?"I'd like":subj==='She'||subj==='He'?`${subj} would like`:`${subj} would like`;
+   return {s:`${lead} ___ .`,opts:['to '+a.b,a.p,a.b],ans:'to '+a.b,why:`После would like — to + глагол: to ${a.b}.`,tag:'ing'}; },
+ because(){ const a=pick(ACT), good=Math.random()<.5; const adj=pick(good?POSADJ:NEGADJ), other=pick(good?NEGADJ:POSADJ); const v=good?pick(['love','enjoy','like']):pick(['hate','dislike',"can't stand"]);
+   const opts=[adj,other,pick((good?NEGADJ:POSADJ).filter(x=>x!==other))]; return {s:`I ${v} ${a.p} because it is ___ .`,opts,ans:adj,why:`${good?'Положительное чувство — положительная причина':'Отрицательное чувство — отрицательная причина'}: it is ${adj}.`,tag:'word'}; }
+};
+let filt='all',lastS='';
+const SETS={all:['ing','form','col','spell','word','adv','would','because'],ing:['ing','would','form'],col:['col'],word:['word','spell','because'],ps:['form','adv']};
+function genQ(){ let q,t=0; do{ q=GENS[pick(SETS[filt])](); t++; }while(q.s===lastS&&t<8); lastS=q.s; return q; }
+let iScore=0,iTotal=0,iStreak=0,iBest=0,goal=20;
+function drawBars(){const b=$('bars'); b.innerHTML=''; for(let i=0;i<goal;i++){const s=document.createElement('span'); if(i<Math.min(iStreak,goal)) s.className='lit'; b.appendChild(s);}}
+function setGoal(){goal=+$('goalSel').value; drawBars(); updBanner();}
+function updBanner(){const bn=$('banner'); if(iStreak>=goal){bn.className='banner show'; bn.textContent=`🏆 Цель достигнута: ${iStreak} подряд без ошибок! Можно продолжать, рекорд растёт.`;} else bn.className='banner';}
+function fillG(s,a){return s.replace(/___ ?/,a+(/___ /.test(s)?' ':'')).replace(/ \./,'.').replace(/\s+([?.!])/g,'$1');}
+function nextInf(){
+  const q=genQ(); const box=$('iq'); box.innerHTML='';
+  const wrap=document.createElement('div'); wrap.className='quiz-q';
+  const qt=document.createElement('div'); qt.className='qtext'; qt.innerHTML=q.s.replace('___','<span class="gap">&nbsp;&nbsp;&nbsp;</span>');
+  const ob=document.createElement('div'); ob.className='opts'; const fb=document.createElement('div'); fb.className='fb';
+  shuffle(q.opts).forEach(op=>{
+    const b=document.createElement('button'); b.className='opt'; b.textContent=op;
+    b.onclick=()=>{
+      ob.querySelectorAll('.opt').forEach(x=>x.disabled=true); iTotal++;
+      const full=q.raw?'':fillG(q.s,q.ans)+' — ';
+      if(op===q.ans){b.classList.add('ok'); iScore++; iStreak++; if(iStreak>iBest) iBest=iStreak; fb.className='fb show ok'; fb.textContent=`✅ Верно! ${full}${q.why}`;}
+      else{b.classList.add('bad'); ob.querySelectorAll('.opt').forEach(x=>{if(x.textContent===q.ans) x.classList.add('ok');}); iStreak=0; fb.className='fb show bad'; fb.textContent=`❌ Серия сбита. ${full}${q.why}`;}
+      $('iScore').textContent=iScore; $('iTotal').textContent=iTotal; $('iStreak').textContent=iStreak; $('iBest').textContent=iBest; drawBars(); updBanner();
+    };
+    ob.appendChild(b);
+  });
+  wrap.append(qt,ob,fb); box.appendChild(wrap);
+}
+function resetInf(){iScore=iTotal=iStreak=iBest=0; ['iScore','iTotal','iStreak','iBest'].forEach(id=>$(id).textContent=0); drawBars(); updBanner(); nextInf();}
+[['all','Все темы'],['ing','like + -ing'],['col','play / do / go'],['word','Слова и -ing'],['ps','Present Simple']].forEach(([k,l])=>{
+  const c=document.createElement('div'); c.className='fchip'+(k==='all'?' on':''); c.textContent=l;
+  c.onclick=()=>{filt=k; document.querySelectorAll('#filters .fchip').forEach(x=>x.classList.remove('on')); c.classList.add('on'); nextInf();}; $('filters').appendChild(c);
+});
+
+buildTraining(); drawBars(); nextInf(); goTo(0);
+</script>
+</body>
+</html>
